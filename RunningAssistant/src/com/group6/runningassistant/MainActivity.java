@@ -28,6 +28,8 @@ public class MainActivity extends Activity {
 	}
 	
 	public void OnClick_Group2(View v) {
+		Intent recordtime = new Intent (MainActivity.this,RecordData.class);
+		startActivity(recordtime);
 		
 	}
 	

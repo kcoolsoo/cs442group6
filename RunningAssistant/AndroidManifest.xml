@@ -27,6 +27,12 @@
             android:name="com.group6.runningassistant.Step_Counter_Activity"
             android:label="@string/title_activity_step__counter_" >
         </activity>
+        <activity
+            android:name="com.group6.runningassistant.RecordData"
+            android:label="@string/title_activity_step__counter_" >
+        </activity>
+        
+        
         
         <service android:name=".StepService"/>
     </application>

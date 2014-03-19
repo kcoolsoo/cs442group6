@@ -104,6 +104,12 @@
 	<string name= "back">Back</string>
     <string name="quit">Quit</string>
     <string name="start">Start</string>
+    <string name="stop">Stop</string>
     <string name="initialvalue">0</string>
-
+    
+    <string name="time"> Time</string>
+    <string name="distance">Distance</string>
+    <string name="speed"> Speed</string>
+    <string name="calories">Calories</string>
+    
 </resources>

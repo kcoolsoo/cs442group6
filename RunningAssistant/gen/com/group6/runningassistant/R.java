@@ -42,19 +42,30 @@ public final class R {
         public static final int ic_notification=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f090008;
+        public static final int action_settings=0x7f090012;
+        public static final int btnstart=0x7f09000f;
+        public static final int btnstop=0x7f090010;
         public static final int button_main_group1=0x7f090000;
         public static final int button_main_group2=0x7f090002;
+        public static final int chronometer1=0x7f090011;
         public static final int pause=0x7f090005;
         public static final int quit=0x7f090007;
         public static final int reset=0x7f090006;
         public static final int start=0x7f090004;
         public static final int step_value=0x7f090003;
         public static final int stepcounter=0x7f090001;
+        public static final int tv_calories_value=0x7f09000d;
+        public static final int tv_distance_value=0x7f09000c;
+        public static final int tv_speed_value=0x7f09000e;
+        public static final int tvcalories=0x7f090009;
+        public static final int tvdistance=0x7f09000a;
+        public static final int tvspeed=0x7f09000b;
+        public static final int tvtime=0x7f090008;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int activity_step__counter_=0x7f030001;
+        public static final int data=0x7f030002;
     }
     public static final class menu {
         public static final int main=0x7f080000;
@@ -68,10 +79,12 @@ public final class R {
         public static final int body_weight_setting=0x7f060037;
         public static final int body_weight_setting_details=0x7f060038;
         public static final int body_weight_setting_title=0x7f060039;
+        public static final int calories=0x7f060066;
         public static final int calories_burned=0x7f060010;
         public static final int centimeters=0x7f060011;
         public static final int desired_pace=0x7f060015;
         public static final int desired_speed=0x7f060016;
+        public static final int distance=0x7f060064;
         public static final int exercise_type_running=0x7f06003d;
         public static final int exercise_type_setting=0x7f06003a;
         public static final int exercise_type_setting_details=0x7f06003b;
@@ -86,7 +99,7 @@ public final class R {
         public static final int higher=0x7f060023;
         public static final int inches=0x7f060012;
         public static final int incorrect_step_length=0x7f06005d;
-        public static final int initialvalue=0x7f060061;
+        public static final int initialvalue=0x7f060062;
         public static final int interval_10_minutes=0x7f06004f;
         public static final int interval_15_seconds=0x7f06004a;
         public static final int interval_1_minute=0x7f06004c;
@@ -126,6 +139,7 @@ public final class R {
         public static final int settings=0x7f06001a;
         public static final int speaking_interval_setting=0x7f060048;
         public static final int speaking_interval_setting_details=0x7f060049;
+        public static final int speed=0x7f060065;
         public static final int start=0x7f060060;
         public static final int started=0x7f060008;
         public static final int step_length_setting=0x7f060034;
@@ -135,6 +149,7 @@ public final class R {
         public static final int steps=0x7f06000a;
         public static final int steps_per_minute=0x7f06000d;
         public static final int steps_settings_title=0x7f06001c;
+        public static final int stop=0x7f060061;
         public static final int stopped=0x7f060009;
         public static final int tell_calories_setting=0x7f060059;
         public static final int tell_calories_setting_details=0x7f06005a;
@@ -149,6 +164,7 @@ public final class R {
         public static final int tell_steps_setting=0x7f060051;
         public static final int tell_steps_setting_details=0x7f060052;
         public static final int tell_what=0x7f060050;
+        public static final int time=0x7f060063;
         public static final int title_activity_step__counter_=0x7f060005;
         public static final int units_imperial=0x7f060033;
         public static final int units_metric=0x7f060032;

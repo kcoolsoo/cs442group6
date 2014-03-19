@@ -34,7 +34,7 @@
         android:layout_below="@+id/stepcounter"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
-        android:onClick="OnClick_Group1"
+        android:onClick="OnClick_Group2"
         android:text="@string/group2" />
 
 </RelativeLayout>
