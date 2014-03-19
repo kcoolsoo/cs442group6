@@ -1,7 +1,10 @@
 package com.group6.runningassistant;
 
+
+
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 
@@ -26,6 +29,11 @@ public class MainActivity extends Activity {
 	
 	public void OnClick_Group2(View v) {
 		
+	}
+	
+	public void Stepcounter(View v){
+	    Intent stepcounterservice = new Intent(MainActivity.this, Step_Counter_Activity.class);
+	    startActivity(stepcounterservice);
 	}
 
 }
