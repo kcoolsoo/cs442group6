@@ -58,7 +58,7 @@ public class Step_Counter_Activity extends Activity {
         Button start = (Button)findViewById(R.id.start);
         Button pause = (Button)findViewById(R.id.pause);
         Button reset = (Button)findViewById(R.id.reset);
-        Button back = (Button)findViewById(R.id.back);
+        Button quit = (Button)findViewById(R.id.quit);
         
         start.setOnClickListener(new OnClickListener() {
               public void onClick(View v) {
@@ -81,12 +81,13 @@ public class Step_Counter_Activity extends Activity {
                 resetValues(true);
             }      
       });
-        back.setOnClickListener(new OnClickListener() {
+        quit.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 if (mIsRunning) {
                     unbindStepService();
                     stopStepService();
                 }
+                mQuitting = true;
                 resetValues(true);
                 finish();
                    
@@ -119,15 +120,17 @@ public class Step_Counter_Activity extends Activity {
         
         // Read from preferences if the service was running on the last onPause
         mIsRunning = mPedometerSettings.isServiceRunning();
+      
+        
         
         // Start the service if this is considered to be an application start (last onPause was long ago)
 //        if (!mIsRunning) {
 //            startStepService();
 //            bindStepService();
 //        }
-//        else if (mIsRunning) {
-//            bindStepService();
-//        }
+        if (mIsRunning) {
+            bindStepService();
+        }
         
         mPedometerSettings.clearServiceRunning();
 
@@ -150,21 +153,21 @@ public class Step_Counter_Activity extends Activity {
 //                : R.string.miles_per_hour
 //        ));
         
-        mMaintain = mPedometerSettings.getMaintainOption();
+//        mMaintain = mPedometerSettings.getMaintainOption();
 //        ((LinearLayout) this.findViewById(R.id.desired_pace_control)).setVisibility(
 //                mMaintain != PedometerSettings.M_NONE
 //                ? View.VISIBLE
 //                : View.GONE
 //            );
-        if (mMaintain == PedometerSettings.M_PACE) {
-            mMaintainInc = 5f;
-            mDesiredPaceOrSpeed = (float)mPedometerSettings.getDesiredPace();
-        }
-        else 
-        if (mMaintain == PedometerSettings.M_SPEED) {
-            mDesiredPaceOrSpeed = mPedometerSettings.getDesiredSpeed();
-            mMaintainInc = 0.1f;
-        }
+//        if (mMaintain == PedometerSettings.M_PACE) {
+//            mMaintainInc = 5f;
+//            mDesiredPaceOrSpeed = (float)mPedometerSettings.getDesiredPace();
+//        }
+//        else 
+//        if (mMaintain == PedometerSettings.M_SPEED) {
+//            mDesiredPaceOrSpeed = mPedometerSettings.getDesiredSpeed();
+//            mMaintainInc = 0.1f;
+//        }
        // Button button1 = (Button) findViewById(R.id.button_desired_pace_lower);
 //        button1.setOnClickListener(new View.OnClickListener() {
 //            public void onClick(View v) {
@@ -231,15 +234,34 @@ public class Step_Counter_Activity extends Activity {
         super.onStop();
     }
 
+    @Override
     protected void onDestroy() {
         Log.i(TAG, "[ACTIVITY] onDestroy");
         super.onDestroy();
     }
-    
+    @Override
     protected void onRestart() {
         Log.i(TAG, "[ACTIVITY] onRestart");
         super.onDestroy();
     }
+    @Override
+    protected void onSaveInstanceState(Bundle save) {
+        mStepValueView     = (TextView) findViewById(R.id.step_value);
+        if(mStepValueView != null){
+            save.putString("steps",mStepValueView.getText().toString());
+        }
+            super.onSaveInstanceState(save);
+        
+     }
+    @Override
+    protected void onRestoreInstanceState(Bundle saved) {
+        mStepValueView     = (TextView) findViewById(R.id.step_value);
+        if(mStepValueView != null){
+            mStepValueView.setText(saved.getString("steps","0"));
+        }
+        super.onRestoreInstanceState(saved);
+    
+      }
     
     private void savePaceSetting() {
         mPedometerSettings.savePaceOrSpeedSetting(mMaintain, mDesiredPaceOrSpeed);
@@ -293,7 +315,7 @@ public class Step_Counter_Activity extends Activity {
     }
     
     private void resetValues(boolean updateDisplay) {
-        if (mService != null && mIsRunning) {
+        if (mService != null) {
             mService.resetValues();                    
         }
         else {
@@ -306,10 +328,10 @@ public class Step_Counter_Activity extends Activity {
             SharedPreferences.Editor stateEditor = state.edit();
             if (updateDisplay) {
                 stateEditor.putInt("steps", 0);
-                stateEditor.putInt("pace", 0);
-                stateEditor.putFloat("distance", 0);
-                stateEditor.putFloat("speed", 0);
-                stateEditor.putFloat("calories", 0);
+//                stateEditor.putInt("pace", 0);
+//                stateEditor.putFloat("distance", 0);
+//                stateEditor.putFloat("speed", 0);
+//                stateEditor.putFloat("calories", 0);
                 stateEditor.commit();
             }
         }
@@ -318,10 +340,10 @@ public class Step_Counter_Activity extends Activity {
 //    private static final int MENU_SETTINGS = 8;
 //    private static final int MENU_QUIT     = 9;
 
-    private static final int MENU_PAUSE = 1;
-    private static final int MENU_RESUME = 2;
-    private static final int MENU_RESET = 3;
-    private static final int MENU_START = 4;
+//    private static final int MENU_PAUSE = 1;
+//    private static final int MENU_RESUME = 2;
+//    private static final int MENU_RESET = 3;
+//    private static final int MENU_START = 4;
     
 //    /* Creates the menu items */
 //    public boolean onPrepareOptionsMenu(Menu menu) {

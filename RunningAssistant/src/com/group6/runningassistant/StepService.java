@@ -268,6 +268,8 @@ public class StepService extends Service {
 //        mCaloriesNotifier.setCalories(0);
     }
     
+   
+    
     /**
      * Forwards pace values from PaceNotifier to the activity. 
      */
