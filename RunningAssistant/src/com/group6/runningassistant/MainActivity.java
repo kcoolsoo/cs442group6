@@ -27,8 +27,14 @@ public class MainActivity extends Activity {
 		
 	}
 	
-	public void OnClick_Group2(View v) {
+	public void OnClick_Data(View v) {
 		Intent recordtime = new Intent (MainActivity.this,RecordData.class);
+		startActivity(recordtime);
+		
+	}
+	
+	public void OnClick_Statistics(View v) {
+		Intent recordtime = new Intent (MainActivity.this,Statistics.class);
 		startActivity(recordtime);
 		
 	}

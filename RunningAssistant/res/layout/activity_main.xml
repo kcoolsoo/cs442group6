@@ -28,13 +28,23 @@
         android:text="@string/stepcounter" />
 
     <Button
-        android:id="@+id/button_main_group2"
+        android:id="@+id/button_main_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/stepcounter"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
-        android:onClick="OnClick_Group2"
-        android:text="@string/group2" />
+        android:onClick="OnClick_Data"
+        android:text="@string/data" />
+
+    <Button
+        android:id="@+id/button_main_statistics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_main_data"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:onClick="OnClick_Statistics"
+        android:text="@string/statistics" />
 
 </RelativeLayout>

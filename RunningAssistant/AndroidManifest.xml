@@ -29,7 +29,23 @@
         </activity>
         <activity
             android:name="com.group6.runningassistant.RecordData"
-            android:label="@string/title_activity_step__counter_" >
+            android:label="@string/title_activity_RecordData" >
+        </activity>
+        <activity
+            android:name="com.group6.runningassistant.Statistics"
+            android:label="@string/title_activity_statistics" >
+        </activity>
+        <activity
+            android:name="com.group6.runningassistant.SpeedGraph"
+            android:label="@string/title_activity_speedGraph" >
+        </activity>
+        <activity
+            android:name="com.group6.runningassistant.DistanceGraph"
+            android:label="@string/title_activity_speedGraph" >
+        </activity>
+        <activity
+            android:name="com.group6.runningassistant.CalorieGraph"
+            android:label="@string/title_activity_speedGraph" >
         </activity>
         
         
