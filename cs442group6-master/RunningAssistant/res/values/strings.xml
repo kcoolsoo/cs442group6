@@ -107,13 +107,16 @@
     <string name="quit">Quit</string>
     <string name="start">Start</string>
     <string name="stop">Stop</string>
-    <string name="initialvalue">0</string>
-    <string name="initspeed">0.00</string>
-    <string name="initdist">0.000</string>
+    <string name="initialvalue">0   Steps</string>
+    <string name="initspeed">0.0   Mph</string>
+    <string name="initdist">0.0   m</string>
     <string name="title_activity_distance_speed">DistanceSpeedActivity</string>
     <string name="distance">Distance</string>
     <string name="speed">Speed</string>
     <string name="time"> Time</string>
     <string name="calories">Calories</string>
+    <string name="speedunit">Mph</string>
+    <string name="distanceunit">m</string>
+    <string name="stepunit">Steps</string>
 
 </resources>

@@ -10,7 +10,7 @@
     
      <TextView
         android:id="@+id/step_value"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -18,14 +18,35 @@
         android:textColor="@color/white"
         android:gravity="center_horizontal"
         android:textSize="@dimen/value" 
-        android:text="@string/initialvalue"/>
-    
-  
+        android:text="@string/initialvalue"/>  
+   	  <TextView
+           android:id="@+id/speedtext"
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/step_value"
+           android:layout_centerHorizontal="true"
+           android:background="@color/display_background"
+           android:gravity="center_horizontal"
+           android:text="@string/initspeed"
+           android:textColor="@color/white"
+           android:textSize="@dimen/value" />
+
+       <TextView
+           android:id="@+id/distance"
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/speedtext"
+           android:layout_centerHorizontal="true"
+           android:background="@color/display_background"
+           android:gravity="center_horizontal"
+           android:text="@string/initdist"
+           android:textColor="@color/white"
+           android:textSize="@dimen/value" />
     <Button
         android:id="@+id/start"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-      	android:layout_below="@id/step_value"
+      	android:layout_below="@id/distance"
       	android:gravity="center_horizontal" 
         android:text="@string/start"
           />
@@ -55,6 +76,6 @@
            android:gravity="center_horizontal"
            android:text="@string/quit" />
 
-    
+      
 
 </RelativeLayout>

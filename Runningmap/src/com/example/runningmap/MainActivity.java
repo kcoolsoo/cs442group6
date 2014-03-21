@@ -129,8 +129,8 @@ public  class MainActivity extends Activity implements LocationListener{
 				StringBuilder stringBuilder=new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");  
 				stringBuilder.append("location="+locallat+","+locallong);
 				stringBuilder.append("&radius=50000");
-				//stringBuilder.append("&types=grocery_or_supermarket");
-				stringBuilder.append("&keyword=sears");
+				stringBuilder.append("&types=grocery_or_supermarket");
+				//stringBuilder.append("&keyword=store or ");
 				stringBuilder.append("&sensor=true");
 				stringBuilder.append("&key=AIzaSyBrktuxUHngHZ4W3cXMp5mb-QPhjiXvwlY");
 				
@@ -146,7 +146,7 @@ public  class MainActivity extends Activity implements LocationListener{
     }
     
            public void onLocationChanged(Location location) {
-        	   i++;
+        	   i++;//for test
                // Getting latitude of the current location
         	   String ischangeString="";
                double latitude = location.getLatitude(); 
@@ -171,7 +171,7 @@ public  class MainActivity extends Activity implements LocationListener{
                }
                else{
             	   ischangeString="notchanged";
-            	   j++;
+            	   j++; // for test
                }
                
                float speed= location.getSpeed()*(float)2.236936;
