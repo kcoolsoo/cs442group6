@@ -17,7 +17,7 @@ public class CalorieGraph extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.calorie_graph);
 	
-int i=0;
+
 	GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] {
 		   
 		   //	for(i=0;i<30;i++)  

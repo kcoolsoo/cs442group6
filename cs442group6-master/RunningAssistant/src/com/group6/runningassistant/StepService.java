@@ -100,7 +100,7 @@ public class StepService extends Service {
         registerReceiver(mReceiver, filter);
 
         mStepDisplayer = new StepDisplayer(mPedometerSettings, mUtils);
-        mStepDisplayer.setSteps(mSteps = mState.getInt("steps", 0));
+        mStepDisplayer.setSteps(mSteps = 0);
         mStepDisplayer.addListener(mStepListener);
         mStepDetector.addStepListener(mStepDisplayer);
 //
@@ -262,6 +262,7 @@ public class StepService extends Service {
     
     public void resetValues() {
         mStepDisplayer.setSteps(0);
+        mSteps = 0;
 //        mPaceNotifier.setPace(0);
 //        mDistanceNotifier.setDistance(0);
 //        mSpeedNotifier.setSpeed(0);
@@ -350,7 +351,7 @@ public class StepService extends Service {
                 System.currentTimeMillis());
         notification.flags = Notification.FLAG_NO_CLEAR | Notification.FLAG_ONGOING_EVENT;
         Intent pedometerIntent = new Intent();
-        pedometerIntent.setComponent(new ComponentName(this, Step_Counter_Activity.class));
+        pedometerIntent.setComponent(new ComponentName(this, StepCounterActivity.class));
         pedometerIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
                 pedometerIntent, 0);

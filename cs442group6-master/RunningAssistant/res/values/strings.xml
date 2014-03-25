@@ -110,6 +110,7 @@
     <string name="initialvalue">0   Steps</string>
     <string name="initspeed">0.0   Mph</string>
     <string name="initdist">0.0   m</string>
+    <string name="initcalorie">0.000   Cal</string>
     <string name="title_activity_distance_speed">DistanceSpeedActivity</string>
     <string name="distance">Distance</string>
     <string name="speed">Speed</string>
@@ -118,5 +119,9 @@
     <string name="speedunit">Mph</string>
     <string name="distanceunit">m</string>
     <string name="stepunit">Steps</string>
+    <string name="calorieunit">Cal</string>
+    <string name="initclock">00:00:00</string>
+	<string name="avespeed">0.0   Mph(Ave)</string>
+	<string name="avespeedunit">Mph(Ave)</string>
 
 </resources>

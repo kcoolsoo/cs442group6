@@ -1,7 +1,6 @@
 package com.group6.runningassistant;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,7 +17,7 @@ public class UserProfile extends Activity{
 	double wt,ht,bmi;
 
 		
-	   
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
 	}
 	
 	public void Stepcounter(View v){
-	    Intent stepcounterservice = new Intent(MainActivity.this, Step_Counter_Activity.class);
+	    Intent stepcounterservice = new Intent(MainActivity.this, StepCounterActivity.class);
 	    startActivity(stepcounterservice);
 	}
 
