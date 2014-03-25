@@ -5,7 +5,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="large_half">240px</dimen>
 
-    <dimen name="value">45sp</dimen>
+    <dimen name="value">30sp</dimen>
     <dimen name="small_value">30sp</dimen>
     <dimen name="step_count">30sp</dimen>
     <dimen name="units">11sp</dimen>

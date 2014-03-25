@@ -237,48 +237,50 @@ containing a value of this type.
         public static final int ic_plusone_tall_off_client=0x7f02001d;
     }
     public static final class id {
-        public static final int action_settings=0x7f050022;
-        public static final int btnreset=0x7f05001e;
-        public static final int btnresume=0x7f05001d;
-        public static final int btnstart=0x7f05001b;
-        public static final int btnstop=0x7f05001c;
+        public static final int action_settings=0x7f050024;
+        public static final int avespeedtext=0x7f05000b;
+        public static final int btnreset=0x7f050020;
+        public static final int btnresume=0x7f05001f;
+        public static final int btnstart=0x7f05001d;
+        public static final int btnstop=0x7f05001e;
         public static final int button_main_data=0x7f050007;
         public static final int button_main_group1=0x7f050005;
         public static final int button_main_statistics=0x7f050008;
-        public static final int calorie_graph=0x7f050010;
-        public static final int chronometer1=0x7f050018;
-        public static final int distance=0x7f05000b;
-        public static final int distance_graph=0x7f05001f;
+        public static final int calorie=0x7f05000d;
+        public static final int calorie_graph=0x7f050013;
+        public static final int chronometer1=0x7f05000e;
+        public static final int distance=0x7f05000c;
+        public static final int distance_graph=0x7f050021;
         public static final int hybrid=0x7f050004;
-        public static final int listView_stats=0x7f050021;
+        public static final int listView_stats=0x7f050023;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
-        public static final int pause=0x7f05000d;
-        public static final int quit=0x7f05000f;
-        public static final int reset=0x7f05000e;
+        public static final int pause=0x7f050010;
+        public static final int quit=0x7f050012;
+        public static final int reset=0x7f050011;
         public static final int satellite=0x7f050002;
-        public static final int speed_graph=0x7f050020;
+        public static final int speed_graph=0x7f050022;
         public static final int speedtext=0x7f05000a;
-        public static final int start=0x7f05000c;
+        public static final int start=0x7f05000f;
         public static final int step_value=0x7f050009;
         public static final int stepcounter=0x7f050006;
         public static final int terrain=0x7f050003;
-        public static final int tv_calories_value=0x7f050016;
-        public static final int tv_distance_unit=0x7f05001a;
-        public static final int tv_distance_value=0x7f050015;
-        public static final int tv_speed_unit=0x7f050019;
-        public static final int tv_speed_value=0x7f050017;
-        public static final int tvcalories=0x7f050012;
-        public static final int tvdistance=0x7f050013;
-        public static final int tvspeed=0x7f050014;
-        public static final int tvtime=0x7f050011;
+        public static final int tv_calories_value=0x7f050019;
+        public static final int tv_distance_unit=0x7f05001c;
+        public static final int tv_distance_value=0x7f050018;
+        public static final int tv_speed_unit=0x7f05001b;
+        public static final int tv_speed_value=0x7f05001a;
+        public static final int tvcalories=0x7f050015;
+        public static final int tvdistance=0x7f050016;
+        public static final int tvspeed=0x7f050017;
+        public static final int tvtime=0x7f050014;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f070000;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int activity_step__counter_=0x7f030001;
+        public static final int activitystepcounter=0x7f030001;
         public static final int calorie_graph=0x7f030002;
         public static final int data=0x7f030003;
         public static final int distance_graph=0x7f030004;
@@ -287,7 +289,7 @@ containing a value of this type.
     }
     public static final class menu {
         public static final int main=0x7f0a0000;
-        public static final int step__counter_=0x7f0a0001;
+        public static final int stepcounter=0x7f0a0001;
     }
     public static final class string {
         public static final int action_settings=0x7f06001b;
@@ -316,12 +318,15 @@ containing a value of this type.
         [CHAR LIMIT=70] 
          */
         public static final int auth_client_using_bad_version_title=0x7f060014;
+        public static final int avespeed=0x7f06008f;
+        public static final int avespeedunit=0x7f060090;
         public static final int back=0x7f06007d;
         public static final int body_weight_setting=0x7f060056;
         public static final int body_weight_setting_details=0x7f060057;
         public static final int body_weight_setting_title=0x7f060058;
-        public static final int calories=0x7f060088;
+        public static final int calories=0x7f060089;
         public static final int calories_burned=0x7f06002f;
+        public static final int calorieunit=0x7f06008d;
         public static final int centimeters=0x7f060030;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
@@ -397,8 +402,8 @@ containing a value of this type.
         public static final int data=0x7f060020;
         public static final int desired_pace=0x7f060034;
         public static final int desired_speed=0x7f060035;
-        public static final int distance=0x7f060085;
-        public static final int distanceunit=0x7f06008a;
+        public static final int distance=0x7f060086;
+        public static final int distanceunit=0x7f06008b;
         public static final int exercise_type_running=0x7f06005c;
         public static final int exercise_type_setting=0x7f060059;
         public static final int exercise_type_setting_details=0x7f06005a;
@@ -412,6 +417,8 @@ containing a value of this type.
         public static final int higher=0x7f060042;
         public static final int inches=0x7f060031;
         public static final int incorrect_step_length=0x7f06007c;
+        public static final int initcalorie=0x7f060084;
+        public static final int initclock=0x7f06008e;
         public static final int initdist=0x7f060083;
         public static final int initialvalue=0x7f060081;
         public static final int initspeed=0x7f060082;
@@ -455,8 +462,8 @@ containing a value of this type.
         public static final int settings=0x7f060039;
         public static final int speaking_interval_setting=0x7f060067;
         public static final int speaking_interval_setting_details=0x7f060068;
-        public static final int speed=0x7f060086;
-        public static final int speedunit=0x7f060089;
+        public static final int speed=0x7f060087;
+        public static final int speedunit=0x7f06008a;
         public static final int start=0x7f06007f;
         public static final int started=0x7f060026;
         public static final int statistics=0x7f060021;
@@ -467,7 +474,7 @@ containing a value of this type.
         public static final int steps=0x7f060028;
         public static final int steps_per_minute=0x7f06002c;
         public static final int steps_settings_title=0x7f06003b;
-        public static final int stepunit=0x7f06008b;
+        public static final int stepunit=0x7f06008c;
         public static final int stop=0x7f060080;
         public static final int stopped=0x7f060027;
         public static final int tell_calories_setting=0x7f060078;
@@ -483,9 +490,9 @@ containing a value of this type.
         public static final int tell_steps_setting=0x7f060070;
         public static final int tell_steps_setting_details=0x7f060071;
         public static final int tell_what=0x7f06006f;
-        public static final int time=0x7f060087;
+        public static final int time=0x7f060088;
         public static final int title_activity_RecordData=0x7f06001c;
-        public static final int title_activity_distance_speed=0x7f060084;
+        public static final int title_activity_distance_speed=0x7f060085;
         public static final int title_activity_speedGraph=0x7f06001e;
         public static final int title_activity_statistics=0x7f06001d;
         public static final int title_activity_step__counter_=0x7f060023;
