@@ -17,14 +17,18 @@ public class DistanceGraph extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.distance_graph);
 	
-int i=0;
+
 	GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] {
 		   
 		   //	for(i=0;i<30;i++)  
-			    new GraphViewData(1,1)
-		      , new GraphViewData(2, 1.5d)
-		      , new GraphViewData(3, 2.5d)
-		      , new GraphViewData(4, 1.0d),new GraphViewData(5,0 )
+			    new GraphViewData(1,1.5)
+		      , new GraphViewData(2, 1d)
+		      , new GraphViewData(3, 3.5d)
+		      , new GraphViewData(4, 2.0d)
+	   	      , new GraphViewData(5,0.8 )
+		      , new GraphViewData(6,2.5 )
+			  , new GraphViewData(5,0.8 )
+			  , new GraphViewData(6,2.5 )
 		});
 		 
 		GraphView graphView = new LineGraphView(
@@ -37,7 +41,7 @@ int i=0;
 		graphView.getGraphViewStyle().setVerticalLabelsColor(Color.RED);
 		graphView.getGraphViewStyle().setTextSize((float) 20);
 		graphView.getGraphViewStyle().setNumHorizontalLabels(5);
-		graphView.getGraphViewStyle().setNumVerticalLabels(6);
+		graphView.getGraphViewStyle().setNumVerticalLabels(7);
 		//graphView.getGraphViewStyle().setVerticalLabelsWidth(300);
 		
 		graphView.getGraphViewStyle().setVerticalLabelsAlign(Align.CENTER);
