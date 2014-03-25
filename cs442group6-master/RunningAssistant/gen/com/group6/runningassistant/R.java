@@ -9,11 +9,178 @@ package com.group6.runningassistant;
 
 public final class R {
     public static final class attr {
+        /** 
+    The size of the ad. It must be one of BANNER, FULL_BANNER, LEADERBOARD,
+    MEDIUM_RECTANGLE, SMART_BANNER, WIDE_SKYSCRAPER, or
+    &lt;width&gt;x&lt;height&gt;.
+    
+         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int adSize=0x7f010000;
+        /** 
+    A comma-separated list of the supported ad sizes. The sizes must be one of
+    BANNER, FULL_BANNER, LEADERBOARD, MEDIUM_RECTANGLE, SMART_BANNER,
+    WIDE_SKYSCRAPER, or &lt;width&gt;x&lt;height&gt;.
+    
+         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int adSizes=0x7f010001;
+        /**  The ad unit ID. 
+         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int adUnitId=0x7f010002;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cameraBearing=0x7f010004;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cameraTargetLat=0x7f010005;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cameraTargetLng=0x7f010006;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cameraTilt=0x7f010007;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cameraZoom=0x7f010008;
+        /** <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>none</code></td><td>0</td><td></td></tr>
+<tr><td><code>normal</code></td><td>1</td><td></td></tr>
+<tr><td><code>satellite</code></td><td>2</td><td></td></tr>
+<tr><td><code>terrain</code></td><td>3</td><td></td></tr>
+<tr><td><code>hybrid</code></td><td>4</td><td></td></tr>
+</table>
+         */
+        public static final int mapType=0x7f010003;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int uiCompass=0x7f010009;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int uiRotateGestures=0x7f01000a;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int uiScrollGestures=0x7f01000b;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int uiTiltGestures=0x7f01000c;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int uiZoomControls=0x7f01000d;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int uiZoomGestures=0x7f01000e;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int useViewLifecycle=0x7f01000f;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int zOrderOnTop=0x7f010010;
     }
     public static final class color {
-        public static final int display_background=0x7f040001;
-        public static final int screen_background=0x7f040000;
-        public static final int white=0x7f040002;
+        public static final int common_action_bar_splitter=0x7f040009;
+        /**  Sign-in Button Colors 
+         */
+        public static final int common_signin_btn_dark_text_default=0x7f040000;
+        public static final int common_signin_btn_dark_text_disabled=0x7f040002;
+        public static final int common_signin_btn_dark_text_focused=0x7f040003;
+        public static final int common_signin_btn_dark_text_pressed=0x7f040001;
+        public static final int common_signin_btn_default_background=0x7f040008;
+        public static final int common_signin_btn_light_text_default=0x7f040004;
+        public static final int common_signin_btn_light_text_disabled=0x7f040006;
+        public static final int common_signin_btn_light_text_focused=0x7f040007;
+        public static final int common_signin_btn_light_text_pressed=0x7f040005;
+        public static final int common_signin_btn_text_dark=0x7f04000d;
+        public static final int common_signin_btn_text_light=0x7f04000e;
+        public static final int display_background=0x7f04000b;
+        public static final int screen_background=0x7f04000a;
+        public static final int white=0x7f04000c;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -22,54 +189,92 @@ public final class R {
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
-        public static final int button=0x7f050009;
-        public static final int button_sign=0x7f05000a;
-        public static final int desired_pace=0x7f050007;
-        public static final int desired_pace_width=0x7f050008;
-        public static final int large_half=0x7f050002;
-        public static final int margin=0x7f05000b;
-        public static final int padding=0x7f05000c;
-        public static final int row_spacing=0x7f05000d;
-        public static final int small_value=0x7f050004;
-        public static final int step_count=0x7f050005;
-        public static final int units=0x7f050006;
-        public static final int value=0x7f050003;
+        public static final int activity_horizontal_margin=0x7f080000;
+        public static final int activity_vertical_margin=0x7f080001;
+        public static final int button=0x7f080009;
+        public static final int button_sign=0x7f08000a;
+        public static final int desired_pace=0x7f080007;
+        public static final int desired_pace_width=0x7f080008;
+        public static final int large_half=0x7f080002;
+        public static final int margin=0x7f08000b;
+        public static final int padding=0x7f08000c;
+        public static final int row_spacing=0x7f08000d;
+        public static final int small_value=0x7f080004;
+        public static final int step_count=0x7f080005;
+        public static final int units=0x7f080006;
+        public static final int value=0x7f080003;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int ic_notification=0x7f020001;
+        public static final int common_signin_btn_icon_dark=0x7f020000;
+        public static final int common_signin_btn_icon_disabled_dark=0x7f020001;
+        public static final int common_signin_btn_icon_disabled_focus_dark=0x7f020002;
+        public static final int common_signin_btn_icon_disabled_focus_light=0x7f020003;
+        public static final int common_signin_btn_icon_disabled_light=0x7f020004;
+        public static final int common_signin_btn_icon_focus_dark=0x7f020005;
+        public static final int common_signin_btn_icon_focus_light=0x7f020006;
+        public static final int common_signin_btn_icon_light=0x7f020007;
+        public static final int common_signin_btn_icon_normal_dark=0x7f020008;
+        public static final int common_signin_btn_icon_normal_light=0x7f020009;
+        public static final int common_signin_btn_icon_pressed_dark=0x7f02000a;
+        public static final int common_signin_btn_icon_pressed_light=0x7f02000b;
+        public static final int common_signin_btn_text_dark=0x7f02000c;
+        public static final int common_signin_btn_text_disabled_dark=0x7f02000d;
+        public static final int common_signin_btn_text_disabled_focus_dark=0x7f02000e;
+        public static final int common_signin_btn_text_disabled_focus_light=0x7f02000f;
+        public static final int common_signin_btn_text_disabled_light=0x7f020010;
+        public static final int common_signin_btn_text_focus_dark=0x7f020011;
+        public static final int common_signin_btn_text_focus_light=0x7f020012;
+        public static final int common_signin_btn_text_light=0x7f020013;
+        public static final int common_signin_btn_text_normal_dark=0x7f020014;
+        public static final int common_signin_btn_text_normal_light=0x7f020015;
+        public static final int common_signin_btn_text_pressed_dark=0x7f020016;
+        public static final int common_signin_btn_text_pressed_light=0x7f020017;
+        public static final int ic_launcher=0x7f020018;
+        public static final int ic_notification=0x7f020019;
+        public static final int ic_plusone_medium_off_client=0x7f02001a;
+        public static final int ic_plusone_small_off_client=0x7f02001b;
+        public static final int ic_plusone_standard_off_client=0x7f02001c;
+        public static final int ic_plusone_tall_off_client=0x7f02001d;
     }
     public static final class id {
-        public static final int action_settings=0x7f09001b;
-        public static final int btnreset=0x7f090017;
-        public static final int btnresume=0x7f090016;
-        public static final int btnstart=0x7f090014;
-        public static final int btnstop=0x7f090015;
-        public static final int button_main_data=0x7f090002;
-        public static final int button_main_group1=0x7f090000;
-        public static final int button_main_statistics=0x7f090003;
-        public static final int calorie_graph=0x7f090009;
-        public static final int chronometer1=0x7f090011;
-        public static final int distance_graph=0x7f090018;
-        public static final int listView_stats=0x7f09001a;
-        public static final int pause=0x7f090006;
-        public static final int quit=0x7f090008;
-        public static final int reset=0x7f090007;
-        public static final int speed_graph=0x7f090019;
-        public static final int start=0x7f090005;
-        public static final int step_value=0x7f090004;
-        public static final int stepcounter=0x7f090001;
-        public static final int tv_calories_value=0x7f09000f;
-        public static final int tv_distance_unit=0x7f090013;
-        public static final int tv_distance_value=0x7f09000e;
-        public static final int tv_speed_unit=0x7f090012;
-        public static final int tv_speed_value=0x7f090010;
-        public static final int tvcalories=0x7f09000b;
-        public static final int tvdistance=0x7f09000c;
-        public static final int tvspeed=0x7f09000d;
-        public static final int tvtime=0x7f09000a;
+        public static final int action_settings=0x7f050022;
+        public static final int btnreset=0x7f05001e;
+        public static final int btnresume=0x7f05001d;
+        public static final int btnstart=0x7f05001b;
+        public static final int btnstop=0x7f05001c;
+        public static final int button_main_data=0x7f050007;
+        public static final int button_main_group1=0x7f050005;
+        public static final int button_main_statistics=0x7f050008;
+        public static final int calorie_graph=0x7f050010;
+        public static final int chronometer1=0x7f050018;
+        public static final int distance=0x7f05000b;
+        public static final int distance_graph=0x7f05001f;
+        public static final int hybrid=0x7f050004;
+        public static final int listView_stats=0x7f050021;
+        public static final int none=0x7f050000;
+        public static final int normal=0x7f050001;
+        public static final int pause=0x7f05000d;
+        public static final int quit=0x7f05000f;
+        public static final int reset=0x7f05000e;
+        public static final int satellite=0x7f050002;
+        public static final int speed_graph=0x7f050020;
+        public static final int speedtext=0x7f05000a;
+        public static final int start=0x7f05000c;
+        public static final int step_value=0x7f050009;
+        public static final int stepcounter=0x7f050006;
+        public static final int terrain=0x7f050003;
+        public static final int tv_calories_value=0x7f050016;
+        public static final int tv_distance_unit=0x7f05001a;
+        public static final int tv_distance_value=0x7f050015;
+        public static final int tv_speed_unit=0x7f050019;
+        public static final int tv_speed_value=0x7f050017;
+        public static final int tvcalories=0x7f050012;
+        public static final int tvdistance=0x7f050013;
+        public static final int tvspeed=0x7f050014;
+        public static final int tvtime=0x7f050011;
+    }
+    public static final class integer {
+        public static final int google_play_services_version=0x7f070000;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -81,123 +286,220 @@ public final class R {
         public static final int statistics=0x7f030006;
     }
     public static final class menu {
-        public static final int main=0x7f080000;
-        public static final int step__counter_=0x7f080001;
+        public static final int main=0x7f0a0000;
+        public static final int step__counter_=0x7f0a0001;
     }
     public static final class string {
-        public static final int action_settings=0x7f060001;
-        public static final int activity_settings=0x7f060020;
-        public static final int app_name=0x7f060000;
-        public static final int back=0x7f060063;
-        public static final int body_weight_setting=0x7f06003c;
-        public static final int body_weight_setting_details=0x7f06003d;
-        public static final int body_weight_setting_title=0x7f06003e;
-        public static final int calories=0x7f06006e;
-        public static final int calories_burned=0x7f060015;
-        public static final int centimeters=0x7f060016;
-        public static final int data=0x7f060006;
-        public static final int desired_pace=0x7f06001a;
-        public static final int desired_speed=0x7f06001b;
-        public static final int distance=0x7f06006b;
-        public static final int exercise_type_running=0x7f060042;
-        public static final int exercise_type_setting=0x7f06003f;
-        public static final int exercise_type_setting_details=0x7f060040;
-        public static final int exercise_type_setting_title=0x7f060041;
-        public static final int exercise_type_walking=0x7f060043;
-        public static final int extra_high=0x7f060025;
-        public static final int extra_low=0x7f06002d;
-        public static final int group1=0x7f060005;
-        public static final int hello_world=0x7f06000a;
-        public static final int high=0x7f060027;
-        public static final int higher=0x7f060028;
-        public static final int inches=0x7f060017;
-        public static final int incorrect_step_length=0x7f060062;
-        public static final int initdist=0x7f060069;
-        public static final int initialvalue=0x7f060067;
-        public static final int initspeed=0x7f060068;
-        public static final int interval_10_minutes=0x7f060054;
-        public static final int interval_15_seconds=0x7f06004f;
-        public static final int interval_1_minute=0x7f060051;
-        public static final int interval_2_minutes=0x7f060052;
-        public static final int interval_30_seconds=0x7f060050;
-        public static final int interval_5_minutes=0x7f060053;
-        public static final int keep_screen_on=0x7f060032;
-        public static final int kilograms=0x7f060018;
-        public static final int kilometers=0x7f06000f;
-        public static final int kilometers_per_hour=0x7f060013;
-        public static final int low=0x7f06002b;
-        public static final int lower=0x7f06002a;
-        public static final int maintain_nothing=0x7f060047;
-        public static final int maintain_pace=0x7f060048;
-        public static final int maintain_setting=0x7f060044;
-        public static final int maintain_setting_details=0x7f060045;
-        public static final int maintain_setting_title=0x7f060046;
-        public static final int maintain_speed=0x7f060049;
-        public static final int medium=0x7f060029;
-        public static final int miles=0x7f060010;
-        public static final int miles_per_hour=0x7f060014;
-        public static final int mph=0x7f060011;
-        public static final int notification_subtitle=0x7f06000b;
-        public static final int operation_level_setting=0x7f06002e;
-        public static final int operation_level_setting_details=0x7f06002f;
-        public static final int operation_level_setting_title=0x7f060030;
-        public static final int pause=0x7f06001c;
-        public static final int pounds=0x7f060019;
-        public static final int quit=0x7f060064;
-        public static final int reset=0x7f06001e;
-        public static final int resume=0x7f06001d;
-        public static final int run_in_background=0x7f060031;
-        public static final int sensitivity_setting=0x7f060022;
-        public static final int sensitivity_setting_details=0x7f060023;
-        public static final int sensitivity_setting_title=0x7f060024;
+        public static final int action_settings=0x7f06001b;
+        public static final int activity_settings=0x7f06003a;
+        public static final int app_name=0x7f06001a;
+        /**   Title for notification shown when GooglePlayServices needs to be
+        enabled for a application to work. [CHAR LIMIT=70] 
+         */
+        public static final int auth_client_needs_enabling_title=0x7f060015;
+        /**   Title for notification shown when GooglePlayServices needs to be
+        installed for a application to work. [CHAR LIMIT=70] 
+         */
+        public static final int auth_client_needs_installation_title=0x7f060016;
+        /**   Title for notification shown when GooglePlayServices needs to be
+        udpated for a application to work. [CHAR LIMIT=70] 
+         */
+        public static final int auth_client_needs_update_title=0x7f060017;
+        /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=42] 
+         */
+        public static final int auth_client_play_services_err_notification_msg=0x7f060018;
+        /**   Requested by string saying which app requested the notification. [CHAR LIMIT=42] 
+         */
+        public static final int auth_client_requested_by_msg=0x7f060019;
+        /**   Title for notification shown when a bad version of GooglePlayServices
+        has been installed and needs correction for an application to work.
+        [CHAR LIMIT=70] 
+         */
+        public static final int auth_client_using_bad_version_title=0x7f060014;
+        public static final int back=0x7f06007d;
+        public static final int body_weight_setting=0x7f060056;
+        public static final int body_weight_setting_details=0x7f060057;
+        public static final int body_weight_setting_title=0x7f060058;
+        public static final int calories=0x7f060088;
+        public static final int calories_burned=0x7f06002f;
+        public static final int centimeters=0x7f060030;
+        /**  Button in confirmation dialog to enable Google Play services.  Clicking it
+        will direct user to application settings of Google Play services where they
+        can enable it [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_enable_button=0x7f060006;
+        /**  Message in confirmation dialog informing user they need to enable
+        Google Play services in application settings [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_enable_text=0x7f060005;
+        /**  Title of confirmation dialog informing user they need to enable
+        Google Play services in application settings [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_enable_title=0x7f060004;
+        /**  Button in confirmation dialog for installing Google Play services [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_install_button=0x7f060003;
+        /**  (For phones) Message in confirmation dialog informing user that
+        they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_install_text_phone=0x7f060001;
+        /**  (For tablets) Message in confirmation dialog informing user that
+        they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_install_text_tablet=0x7f060002;
+        /**  Title of confirmation dialog informing user that they need to install
+        Google Play services (from Play Store) [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_install_title=0x7f060000;
+        /**  Message in confirmation dialog informing the user that they provided an invalid account. [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_invalid_account_text=0x7f06000c;
+        /**  Title of confirmation dialog informing the user that they provided an invalid account. [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_invalid_account_title=0x7f06000b;
+        /**  Message in confirmation dialog informing the user that a network error occurred. [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_network_error_text=0x7f06000a;
+        /**  Title of confirmation dialog informing the user that a network error occurred. [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_network_error_title=0x7f060009;
+        /**  Message in confirmation dialog informing user there is an unknown issue in Google Play
+        services [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_unknown_issue=0x7f06000d;
+        /**  Message in confirmation dialog informing user that date on the device is not correct,
+    causing certificate checks to fail. [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_unsupported_date_text=0x7f060010;
+        /**  Message in confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_unsupported_text=0x7f06000f;
+        /**  Title of confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_unsupported_title=0x7f06000e;
+        /**  Button in confirmation dialog for updating Google Play services [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_update_button=0x7f060011;
+        /**  Message in confirmation dialog informing user that they need to update
+        Google Play services (from Play Store) [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_update_text=0x7f060008;
+        /**  Title of confirmation dialog informing user that they need to update
+        Google Play services (from Play Store) [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_update_title=0x7f060007;
+        /**  Sign-in button text [CHAR LIMIT=15] 
+         */
+        public static final int common_signin_button_text=0x7f060012;
+        /**  Long form sign-in button text [CHAR LIMIT=30] 
+         */
+        public static final int common_signin_button_text_long=0x7f060013;
+        public static final int data=0x7f060020;
+        public static final int desired_pace=0x7f060034;
+        public static final int desired_speed=0x7f060035;
+        public static final int distance=0x7f060085;
+        public static final int distanceunit=0x7f06008a;
+        public static final int exercise_type_running=0x7f06005c;
+        public static final int exercise_type_setting=0x7f060059;
+        public static final int exercise_type_setting_details=0x7f06005a;
+        public static final int exercise_type_setting_title=0x7f06005b;
+        public static final int exercise_type_walking=0x7f06005d;
+        public static final int extra_high=0x7f06003f;
+        public static final int extra_low=0x7f060047;
+        public static final int group1=0x7f06001f;
+        public static final int hello_world=0x7f060024;
+        public static final int high=0x7f060041;
+        public static final int higher=0x7f060042;
+        public static final int inches=0x7f060031;
+        public static final int incorrect_step_length=0x7f06007c;
+        public static final int initdist=0x7f060083;
+        public static final int initialvalue=0x7f060081;
+        public static final int initspeed=0x7f060082;
+        public static final int interval_10_minutes=0x7f06006e;
+        public static final int interval_15_seconds=0x7f060069;
+        public static final int interval_1_minute=0x7f06006b;
+        public static final int interval_2_minutes=0x7f06006c;
+        public static final int interval_30_seconds=0x7f06006a;
+        public static final int interval_5_minutes=0x7f06006d;
+        public static final int keep_screen_on=0x7f06004c;
+        public static final int kilograms=0x7f060032;
+        public static final int kilometers=0x7f060029;
+        public static final int kilometers_per_hour=0x7f06002d;
+        public static final int low=0x7f060045;
+        public static final int lower=0x7f060044;
+        public static final int maintain_nothing=0x7f060061;
+        public static final int maintain_pace=0x7f060062;
+        public static final int maintain_setting=0x7f06005e;
+        public static final int maintain_setting_details=0x7f06005f;
+        public static final int maintain_setting_title=0x7f060060;
+        public static final int maintain_speed=0x7f060063;
+        public static final int medium=0x7f060043;
+        public static final int miles=0x7f06002a;
+        public static final int miles_per_hour=0x7f06002e;
+        public static final int mph=0x7f06002b;
+        public static final int notification_subtitle=0x7f060025;
+        public static final int operation_level_setting=0x7f060048;
+        public static final int operation_level_setting_details=0x7f060049;
+        public static final int operation_level_setting_title=0x7f06004a;
+        public static final int pause=0x7f060036;
+        public static final int pounds=0x7f060033;
+        public static final int quit=0x7f06007e;
+        public static final int reset=0x7f060038;
+        public static final int resume=0x7f060037;
+        public static final int run_in_background=0x7f06004b;
+        public static final int sensitivity_setting=0x7f06003c;
+        public static final int sensitivity_setting_details=0x7f06003d;
+        public static final int sensitivity_setting_title=0x7f06003e;
         /**  Settings 
          */
-        public static final int settings=0x7f06001f;
-        public static final int speaking_interval_setting=0x7f06004d;
-        public static final int speaking_interval_setting_details=0x7f06004e;
-        public static final int speed=0x7f06006c;
-        public static final int start=0x7f060065;
-        public static final int started=0x7f06000c;
-        public static final int statistics=0x7f060007;
-        public static final int step_length_setting=0x7f060039;
-        public static final int step_length_setting_details=0x7f06003a;
-        public static final int step_length_setting_title=0x7f06003b;
-        public static final int stepcounter=0x7f060008;
-        public static final int steps=0x7f06000e;
-        public static final int steps_per_minute=0x7f060012;
-        public static final int steps_settings_title=0x7f060021;
-        public static final int stop=0x7f060066;
-        public static final int stopped=0x7f06000d;
-        public static final int tell_calories_setting=0x7f06005e;
-        public static final int tell_calories_setting_details=0x7f06005f;
-        public static final int tell_distance_setting=0x7f06005a;
-        public static final int tell_distance_setting_details=0x7f06005b;
-        public static final int tell_fasterslower_setting=0x7f060060;
-        public static final int tell_fasterslower_setting_details=0x7f060061;
-        public static final int tell_pace_setting=0x7f060058;
-        public static final int tell_pace_setting_details=0x7f060059;
-        public static final int tell_speed_setting=0x7f06005c;
-        public static final int tell_speed_setting_details=0x7f06005d;
-        public static final int tell_steps_setting=0x7f060056;
-        public static final int tell_steps_setting_details=0x7f060057;
-        public static final int tell_what=0x7f060055;
-        public static final int time=0x7f06006d;
-        public static final int title_activity_RecordData=0x7f060002;
-        public static final int title_activity_distance_speed=0x7f06006a;
-        public static final int title_activity_speedGraph=0x7f060004;
-        public static final int title_activity_statistics=0x7f060003;
-        public static final int title_activity_step__counter_=0x7f060009;
-        public static final int units_imperial=0x7f060038;
-        public static final int units_metric=0x7f060037;
-        public static final int units_setting=0x7f060034;
-        public static final int units_setting_details=0x7f060035;
-        public static final int units_setting_title=0x7f060036;
-        public static final int very_high=0x7f060026;
-        public static final int very_low=0x7f06002c;
-        public static final int voice_setting=0x7f06004b;
-        public static final int voice_setting_details=0x7f06004c;
-        public static final int voice_settings_title=0x7f06004a;
-        public static final int wake_up=0x7f060033;
+        public static final int settings=0x7f060039;
+        public static final int speaking_interval_setting=0x7f060067;
+        public static final int speaking_interval_setting_details=0x7f060068;
+        public static final int speed=0x7f060086;
+        public static final int speedunit=0x7f060089;
+        public static final int start=0x7f06007f;
+        public static final int started=0x7f060026;
+        public static final int statistics=0x7f060021;
+        public static final int step_length_setting=0x7f060053;
+        public static final int step_length_setting_details=0x7f060054;
+        public static final int step_length_setting_title=0x7f060055;
+        public static final int stepcounter=0x7f060022;
+        public static final int steps=0x7f060028;
+        public static final int steps_per_minute=0x7f06002c;
+        public static final int steps_settings_title=0x7f06003b;
+        public static final int stepunit=0x7f06008b;
+        public static final int stop=0x7f060080;
+        public static final int stopped=0x7f060027;
+        public static final int tell_calories_setting=0x7f060078;
+        public static final int tell_calories_setting_details=0x7f060079;
+        public static final int tell_distance_setting=0x7f060074;
+        public static final int tell_distance_setting_details=0x7f060075;
+        public static final int tell_fasterslower_setting=0x7f06007a;
+        public static final int tell_fasterslower_setting_details=0x7f06007b;
+        public static final int tell_pace_setting=0x7f060072;
+        public static final int tell_pace_setting_details=0x7f060073;
+        public static final int tell_speed_setting=0x7f060076;
+        public static final int tell_speed_setting_details=0x7f060077;
+        public static final int tell_steps_setting=0x7f060070;
+        public static final int tell_steps_setting_details=0x7f060071;
+        public static final int tell_what=0x7f06006f;
+        public static final int time=0x7f060087;
+        public static final int title_activity_RecordData=0x7f06001c;
+        public static final int title_activity_distance_speed=0x7f060084;
+        public static final int title_activity_speedGraph=0x7f06001e;
+        public static final int title_activity_statistics=0x7f06001d;
+        public static final int title_activity_step__counter_=0x7f060023;
+        public static final int units_imperial=0x7f060052;
+        public static final int units_metric=0x7f060051;
+        public static final int units_setting=0x7f06004e;
+        public static final int units_setting_details=0x7f06004f;
+        public static final int units_setting_title=0x7f060050;
+        public static final int very_high=0x7f060040;
+        public static final int very_low=0x7f060046;
+        public static final int voice_setting=0x7f060065;
+        public static final int voice_setting_details=0x7f060066;
+        public static final int voice_settings_title=0x7f060064;
+        public static final int wake_up=0x7f06004d;
     }
     public static final class style {
         /** 
@@ -221,10 +523,331 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f090000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
+        public static final int AppTheme=0x7f090001;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a AdsAttrs.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #AdsAttrs_adSize com.group6.runningassistant:adSize}</code></td><td>
+    The size of the ad.</td></tr>
+           <tr><td><code>{@link #AdsAttrs_adSizes com.group6.runningassistant:adSizes}</code></td><td>
+    A comma-separated list of the supported ad sizes.</td></tr>
+           <tr><td><code>{@link #AdsAttrs_adUnitId com.group6.runningassistant:adUnitId}</code></td><td> The ad unit ID.</td></tr>
+           </table>
+           @see #AdsAttrs_adSize
+           @see #AdsAttrs_adSizes
+           @see #AdsAttrs_adUnitId
+         */
+        public static final int[] AdsAttrs = {
+            0x7f010000, 0x7f010001, 0x7f010002
+        };
+        /**
+          <p>
+          @attr description
+          
+    The size of the ad. It must be one of BANNER, FULL_BANNER, LEADERBOARD,
+    MEDIUM_RECTANGLE, SMART_BANNER, WIDE_SKYSCRAPER, or
+    &lt;width&gt;x&lt;height&gt;.
+    
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.group6.runningassistant:adSize
+        */
+        public static final int AdsAttrs_adSize = 0;
+        /**
+          <p>
+          @attr description
+          
+    A comma-separated list of the supported ad sizes. The sizes must be one of
+    BANNER, FULL_BANNER, LEADERBOARD, MEDIUM_RECTANGLE, SMART_BANNER,
+    WIDE_SKYSCRAPER, or &lt;width&gt;x&lt;height&gt;.
+    
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.group6.runningassistant:adSizes
+        */
+        public static final int AdsAttrs_adSizes = 1;
+        /**
+          <p>
+          @attr description
+           The ad unit ID. 
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.group6.runningassistant:adUnitId
+        */
+        public static final int AdsAttrs_adUnitId = 2;
+        /** Attributes that can be used with a MapAttrs.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #MapAttrs_cameraBearing com.group6.runningassistant:cameraBearing}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_cameraTargetLat com.group6.runningassistant:cameraTargetLat}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_cameraTargetLng com.group6.runningassistant:cameraTargetLng}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_cameraTilt com.group6.runningassistant:cameraTilt}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_cameraZoom com.group6.runningassistant:cameraZoom}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_mapType com.group6.runningassistant:mapType}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiCompass com.group6.runningassistant:uiCompass}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiRotateGestures com.group6.runningassistant:uiRotateGestures}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiScrollGestures com.group6.runningassistant:uiScrollGestures}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiTiltGestures com.group6.runningassistant:uiTiltGestures}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiZoomControls com.group6.runningassistant:uiZoomControls}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiZoomGestures com.group6.runningassistant:uiZoomGestures}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_useViewLifecycle com.group6.runningassistant:useViewLifecycle}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_zOrderOnTop com.group6.runningassistant:zOrderOnTop}</code></td><td></td></tr>
+           </table>
+           @see #MapAttrs_cameraBearing
+           @see #MapAttrs_cameraTargetLat
+           @see #MapAttrs_cameraTargetLng
+           @see #MapAttrs_cameraTilt
+           @see #MapAttrs_cameraZoom
+           @see #MapAttrs_mapType
+           @see #MapAttrs_uiCompass
+           @see #MapAttrs_uiRotateGestures
+           @see #MapAttrs_uiScrollGestures
+           @see #MapAttrs_uiTiltGestures
+           @see #MapAttrs_uiZoomControls
+           @see #MapAttrs_uiZoomGestures
+           @see #MapAttrs_useViewLifecycle
+           @see #MapAttrs_zOrderOnTop
+         */
+        public static final int[] MapAttrs = {
+            0x7f010003, 0x7f010004, 0x7f010005, 0x7f010006,
+            0x7f010007, 0x7f010008, 0x7f010009, 0x7f01000a,
+            0x7f01000b, 0x7f01000c, 0x7f01000d, 0x7f01000e,
+            0x7f01000f, 0x7f010010
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.group6.runningassistant.R.attr#cameraBearing}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.group6.runningassistant:cameraBearing
+        */
+        public static final int MapAttrs_cameraBearing = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.group6.runningassistant.R.attr#cameraTargetLat}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.group6.runningassistant:cameraTargetLat
+        */
+        public static final int MapAttrs_cameraTargetLat = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.group6.runningassistant.R.attr#cameraTargetLng}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.group6.runningassistant:cameraTargetLng
+        */
+        public static final int MapAttrs_cameraTargetLng = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.group6.runningassistant.R.attr#cameraTilt}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.group6.runningassistant:cameraTilt
+        */
+        public static final int MapAttrs_cameraTilt = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.group6.runningassistant.R.attr#cameraZoom}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.group6.runningassistant:cameraZoom
+        */
+        public static final int MapAttrs_cameraZoom = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.group6.runningassistant.R.attr#mapType}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>none</code></td><td>0</td><td></td></tr>
+<tr><td><code>normal</code></td><td>1</td><td></td></tr>
+<tr><td><code>satellite</code></td><td>2</td><td></td></tr>
+<tr><td><code>terrain</code></td><td>3</td><td></td></tr>
+<tr><td><code>hybrid</code></td><td>4</td><td></td></tr>
+</table>
+          @attr name com.group6.runningassistant:mapType
+        */
+        public static final int MapAttrs_mapType = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.group6.runningassistant.R.attr#uiCompass}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.group6.runningassistant:uiCompass
+        */
+        public static final int MapAttrs_uiCompass = 6;
+        /**
+          <p>This symbol is the offset where the {@link com.group6.runningassistant.R.attr#uiRotateGestures}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.group6.runningassistant:uiRotateGestures
+        */
+        public static final int MapAttrs_uiRotateGestures = 7;
+        /**
+          <p>This symbol is the offset where the {@link com.group6.runningassistant.R.attr#uiScrollGestures}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.group6.runningassistant:uiScrollGestures
+        */
+        public static final int MapAttrs_uiScrollGestures = 8;
+        /**
+          <p>This symbol is the offset where the {@link com.group6.runningassistant.R.attr#uiTiltGestures}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.group6.runningassistant:uiTiltGestures
+        */
+        public static final int MapAttrs_uiTiltGestures = 9;
+        /**
+          <p>This symbol is the offset where the {@link com.group6.runningassistant.R.attr#uiZoomControls}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.group6.runningassistant:uiZoomControls
+        */
+        public static final int MapAttrs_uiZoomControls = 10;
+        /**
+          <p>This symbol is the offset where the {@link com.group6.runningassistant.R.attr#uiZoomGestures}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.group6.runningassistant:uiZoomGestures
+        */
+        public static final int MapAttrs_uiZoomGestures = 11;
+        /**
+          <p>This symbol is the offset where the {@link com.group6.runningassistant.R.attr#useViewLifecycle}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.group6.runningassistant:useViewLifecycle
+        */
+        public static final int MapAttrs_useViewLifecycle = 12;
+        /**
+          <p>This symbol is the offset where the {@link com.group6.runningassistant.R.attr#zOrderOnTop}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.group6.runningassistant:zOrderOnTop
+        */
+        public static final int MapAttrs_zOrderOnTop = 13;
+    };
 }

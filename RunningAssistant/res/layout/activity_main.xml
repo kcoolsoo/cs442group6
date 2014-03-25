@@ -15,7 +15,7 @@
         android:layout_above="@+id/stepcounter"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="41dp"
-        android:onClick="OnClick_Group2"
+        
         android:text="@string/group1" />
 
     <Button
@@ -46,5 +46,15 @@
         android:layout_marginTop="18dp"
         android:onClick="OnClick_Statistics"
         android:text="@string/statistics" />
+
+    <Button
+        android:id="@+id/button_user_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_main_group1"
+        android:layout_alignRight="@+id/button_main_data"
+        android:layout_marginBottom="25dp"
+        android:text="@string/userprofile"
+        android:onClick="OnClick_UserProfile" />
 
 </RelativeLayout>
