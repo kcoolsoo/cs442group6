@@ -24,7 +24,8 @@ int i=0;
 			    new GraphViewData(1,1)
 		      , new GraphViewData(2, 1.5d)
 		      , new GraphViewData(3, 2.5d)
-		      , new GraphViewData(4, 1.0d),new GraphViewData(5,0 )
+		      , new GraphViewData(4, 1.0d)
+		      , new GraphViewData(5,0 )
 		});
 		 
 		GraphView graphView = new LineGraphView(

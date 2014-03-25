@@ -25,7 +25,7 @@ public class SpeedGraph extends Activity {
 		      , new GraphViewData(2, 1.5d)
 		      , new GraphViewData(3, 2.5d)
 		      , new GraphViewData(4, 1.0d)
-			  , new GraphViewData(5,0 )
+		      , new GraphViewData(5,0 )
 			  , new GraphViewData(6, 1.0d)
 			  , new GraphViewData(7,2 )
 		});

@@ -18,7 +18,7 @@ public class UserProfile extends Activity{
 	double wt,ht,bmi;
 
 		
-	
+	   
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
