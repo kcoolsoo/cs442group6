@@ -27,6 +27,11 @@ public class MainActivity extends Activity {
 		
 	}
 	
+	public void OnClick_UserProfile(View v){
+		Intent profile = new Intent(MainActivity.this,UserProfile.class);
+		startActivity(profile);
+	}
+	
 	public void OnClick_Data(View v) {
 		Intent recordtime = new Intent (MainActivity.this,RecordData.class);
 		startActivity(recordtime);

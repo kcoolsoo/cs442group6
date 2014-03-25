@@ -6,7 +6,14 @@
     <string name="title_activity_RecordData"> Data</string>
     <string name="title_activity_statistics"> Statistics</string>
     <string name="title_activity_speedGraph"> Speed Graph</string>
+    <string name="title_activity_distanceGraph"> Distance Graph</string>
+    <string name="title_activity_calorieGraph"> Calorie Graph</string>
+    <string name="title_activity_userprofile">User Profile</string>
+    <string name="page1_title">USER PROFILE</string>
     
+    
+    <string name="userprofile"> User Profile</string>
+
     <string name="group1">Map Function</string>
     <string name="data">Data</string>
     <string name="statistics"> Statistics</string>

@@ -17,14 +17,17 @@ public class SpeedGraph extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.speed_graph);
 	
-int i=0;
+
 	GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] {
 		   
 		   //	for(i=0;i<30;i++)  
 			    new GraphViewData(1,1)
 		      , new GraphViewData(2, 1.5d)
 		      , new GraphViewData(3, 2.5d)
-		      , new GraphViewData(4, 1.0d),new GraphViewData(5,0 )
+		      , new GraphViewData(4, 1.0d)
+			  , new GraphViewData(5,0 )
+			  , new GraphViewData(6, 1.0d)
+			  , new GraphViewData(7,2 )
 		});
 		 
 		GraphView graphView = new LineGraphView(

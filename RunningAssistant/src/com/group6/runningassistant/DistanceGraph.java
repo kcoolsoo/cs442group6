@@ -21,10 +21,12 @@ int i=0;
 	GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] {
 		   
 		   //	for(i=0;i<30;i++)  
-			    new GraphViewData(1,1)
-		      , new GraphViewData(2, 1.5d)
-		      , new GraphViewData(3, 2.5d)
-		      , new GraphViewData(4, 1.0d),new GraphViewData(5,0 )
+			    new GraphViewData(1,1.5)
+		      , new GraphViewData(2, 1d)
+		      , new GraphViewData(3, 3.5d)
+		      , new GraphViewData(4, 2.0d)
+			  , new GraphViewData(5,0.8 )
+			  , new GraphViewData(6,2.5 )
 		});
 		 
 		GraphView graphView = new LineGraphView(
