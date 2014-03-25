@@ -41,11 +41,19 @@
         </activity>
         <activity
             android:name="com.group6.runningassistant.DistanceGraph"
-            android:label="@string/title_activity_speedGraph" >
+            android:label="@string/title_activity_distanceGraph" >
         </activity>
         <activity
             android:name="com.group6.runningassistant.CalorieGraph"
-            android:label="@string/title_activity_speedGraph" >
+            android:label="@string/title_activity_calorieGraph" >
+        </activity>
+        <activity
+            android:name="com.group6.runningassistant.UserProfile"
+            android:label="@string/title_activity_userprofile" >
+        </activity>
+        <activity
+            android:name="com.group6.runningassistant.BMI"
+            android:label="@string/title_activity_userprofile" >
         </activity>
         
         
