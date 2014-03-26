@@ -405,7 +405,7 @@ public class StepCounterActivity extends Activity {
 						: METRIC_WALKING_FACTOR))
 						// Distance:
 						* (mDistance - previousdis) // centimeters
-						/ 100000.0; // centimeters/kilometer
+						/ 1000.0; // centimeters/kilometer
 				distancetext.setText(mDistance + "   "
 						+ getResources().getString(R.string.distanceunit));
 				calorietext.setText(df.format(mCalories) + "   "
