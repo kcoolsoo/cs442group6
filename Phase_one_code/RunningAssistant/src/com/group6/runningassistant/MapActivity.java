@@ -73,7 +73,7 @@ public  class MapActivity extends Activity implements LocationListener{
       
     	   super.onCreate(savedInstanceState);
            setContentView(R.layout.activity_map);
-           btn_nav=(Button)findViewById(R.id.button1);
+           btn_nav=(Button)findViewById(R.id.btnclear);
          // btn_nav=(Button)findViewById(R.id.)
            int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getBaseContext());
            

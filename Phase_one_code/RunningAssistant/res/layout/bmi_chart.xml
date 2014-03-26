@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/imageView1"
+        android:layout_below="@+id/imageButton_cancel"
         android:text="BMI LEVEL"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -31,7 +31,7 @@
         android:src="@drawable/bmi_chart1" />
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imageButton_cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

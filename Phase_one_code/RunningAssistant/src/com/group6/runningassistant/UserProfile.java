@@ -1,7 +1,11 @@
 package com.group6.runningassistant;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -9,44 +13,149 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class UserProfile extends Activity{
-	
-	EditText weight,height,bmi1;
-	Button confirm;
-	ImageButton calcBMI;
-	double wt,ht,bmi;
+public class UserProfile extends Activity {
 
-		
+	private EditText mEditAge, mEditWeight, mEditHeight, mEditBmi;
+	private Button mBtnConfirm, mBtnCancel, mBtnClear;
+	private ImageButton mBtnBMI;
+	private int mAge;
+	private float mWeight, mHeight, mBmi;
+
+	private int PREF_MODE = 0;
+	private static final String PREF_NAME = "UserProfile";
+	private static final String KEY_AGE = "age";
+	private static final String KEY_WEIGHT = "weight";
+	private static final String KEY_HEIGHT = "height";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-	
 		setContentView(R.layout.user_profile);
-		weight=(EditText)findViewById(R.id.value_weight);
-		height=(EditText)findViewById(R.id.value_height);
 		
-		confirm=(Button)findViewById(R.id.btnconfirm);
-		calcBMI=(ImageButton)findViewById(R.id.imageButton_BMI);
+		mAge = -1;
+		mWeight = -1f;
+		mHeight = -1f;
 		
+		mEditAge = (EditText) findViewById(R.id.value_age);
+		mEditWeight = (EditText) findViewById(R.id.value_weight);
+		mEditHeight = (EditText) findViewById(R.id.value_height);
+
+		Context context = getApplicationContext();
+		SharedPreferences pref = context.getSharedPreferences(PREF_NAME,
+				PREF_MODE);
+		if (pref.getInt(KEY_AGE, mAge) >= 0
+				&& pref.getFloat(KEY_WEIGHT, mWeight) >= 0
+				&& pref.getFloat(KEY_HEIGHT, mHeight) >= 0) {
+			mAge = pref.getInt(KEY_AGE, mAge);
+			mWeight = pref.getFloat(KEY_WEIGHT, mWeight);
+			mHeight = pref.getFloat(KEY_HEIGHT, mHeight);
+			
+			mEditAge.setText(Integer.toString(mAge));
+			mEditWeight.setText(Float.toString(mWeight));
+			mEditHeight.setText(Float.toString(mHeight));
+		}
+
+		mBtnClear = (Button) findViewById(R.id.btnclear);
+		mBtnCancel = (Button) findViewById(R.id.imageButton_cancel);
+		mBtnConfirm = (Button) findViewById(R.id.btnconfirm);
+		mBtnBMI = (ImageButton) findViewById(R.id.imageButton_BMI);
 		
 
-	
-	calcBMI.setOnClickListener(new OnClickListener(){
-		public void onClick(View v){
+		mBtnClear.setOnClickListener(new View.OnClickListener() {
 			
-			wt=Double.parseDouble(weight.getText().toString());
-			ht=Double.parseDouble(height.getText().toString());
-			bmi=(wt*703)/(ht*ht);
-			setContentView(R.layout.bmi_chart);
-			bmi1=(EditText)findViewById(R.id.value_bmi);
-			bmi1.setText(" "+bmi);
-			Toast.makeText(UserProfile.this," "+bmi,Toast.LENGTH_LONG).show();
+			@Override
+			public void onClick(View v) {
+				clearUserProfile();
+			}
+		});
+		
+		mBtnCancel.setOnClickListener(new View.OnClickListener() {
 			
-		}
-	});
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
+		
+		mBtnConfirm.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				mAge = Integer.parseInt(mEditAge.getText().toString());
+				mWeight = Float.parseFloat(mEditWeight.getText().toString());
+				mHeight = Float.parseFloat(mEditHeight.getText().toString());
+				saveUserProfile(mAge, mWeight, mHeight);
+				finish();
+			}
+		});
+
+		mBtnBMI.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+
+				mWeight = Float.parseFloat(mEditWeight.getText().toString());
+				mHeight = Float.parseFloat(mEditHeight.getText().toString());
+				mBmi = (mWeight * 703) / (mHeight * mHeight);
+				setContentView(R.layout.bmi_chart);
+				mEditBmi = (EditText) findViewById(R.id.value_bmi);
+				mEditBmi.setText(" " + mBmi);
+				Toast.makeText(UserProfile.this, " " + mBmi, Toast.LENGTH_LONG)
+						.show();
+
+			}
+		});
 	}
 	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		
+		Context context = getApplicationContext();
+		SharedPreferences pref = context.getSharedPreferences(PREF_NAME,
+				PREF_MODE);
+		if (pref.getInt(KEY_AGE, mAge) >= 0
+				&& pref.getFloat(KEY_WEIGHT, mWeight) >= 0
+				&& pref.getFloat(KEY_HEIGHT, mHeight) >= 0) {
+			mAge = pref.getInt(KEY_AGE, mAge);
+			mWeight = pref.getFloat(KEY_WEIGHT, mWeight);
+			mHeight = pref.getFloat(KEY_HEIGHT, mHeight);
+			
+			mEditAge.setText(Integer.toString(mAge));
+			mEditWeight.setText(Float.toString(mWeight));
+			mEditHeight.setText(Float.toString(mHeight));
+		}
+		
+	}
+
+	protected void saveUserProfile(int age, float weight, float height) {
+		Context context = getApplicationContext();
+		SharedPreferences pref = context.getSharedPreferences(PREF_NAME,
+				PREF_MODE);
+
+		Editor editor = pref.edit();
+		editor.putInt(KEY_AGE, age);
+		editor.putFloat(KEY_WEIGHT, weight);
+		editor.putFloat(KEY_HEIGHT, height);
+		editor.commit();
+	}
 	
+	protected void clearUserProfile() {
+		Context context = getApplicationContext();
+		SharedPreferences pref = context.getSharedPreferences(PREF_NAME,
+				PREF_MODE);
+
+		Editor editor = pref.edit();;
+		
+		editor.remove(KEY_AGE);
+		editor.remove(KEY_HEIGHT);
+		editor.remove(KEY_WEIGHT);
+		editor.clear();
+		editor.commit();
+		
+		mEditAge.setText(null);
+		mEditHeight.setText(null);
+		mEditWeight.setText(null);
+		
+		Toast.makeText(getApplicationContext(), "User profile cleared!", Toast.LENGTH_LONG).show();
+	}
 
 }

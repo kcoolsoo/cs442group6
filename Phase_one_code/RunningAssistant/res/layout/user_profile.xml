@@ -14,25 +14,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/tvuserprofile"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="40dp"
-        android:layout_weight="0.35"
-        android:text="AGE"
-        android:textSize="25dp"/>
+        android:text="@string/age"
+        android:textSize="25sp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvuserprofile"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="17dp"
-        android:layout_weight="0.35"
         android:gravity="center"
-        android:text="@string/page1_title"
-        android:textSize="30dp" />
+        android:text="@string/userprofile"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/tvheight"
@@ -41,20 +39,18 @@
         android:layout_alignLeft="@+id/tvage"
         android:layout_below="@+id/tvage"
         android:layout_marginTop="20dp"
-        android:layout_weight="0.35"
-        android:text="Height"
-        android:textSize="25dp" />
+        android:text="@string/height"
+        android:textSize="25sp" />
 
     <TextView
-        android:id="@+id/TextView01"
+        android:id="@+id/tvweight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/tvheight"
         android:layout_below="@+id/tvheight"
         android:layout_marginTop="22dp"
-        android:layout_weight="0.35"
-        android:text="WEIGHT"
-        android:textSize="25dp" />
+        android:text="@string/weight"
+        android:textSize="25sp" />
 
     <EditText
         android:id="@+id/value_age"
@@ -63,8 +59,9 @@
         android:layout_alignBaseline="@+id/tvage"
         android:layout_alignBottom="@+id/tvage"
         android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/TextView01"
+        android:layout_toRightOf="@+id/tvweight"
         android:ems="10"
+        android:hint="@string/ageunit"
         android:inputType="number" >
 
         <requestFocus />
@@ -78,18 +75,20 @@
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/tvheight"
         android:ems="10"
-        android:inputType="number" />
+        android:hint="@string/heightunit"
+        android:inputType="number|numberDecimal" />
 
     <EditText
         android:id="@+id/value_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/TextView01"
-        android:layout_alignBottom="@+id/TextView01"
+        android:layout_alignBaseline="@+id/tvweight"
+        android:layout_alignBottom="@+id/tvweight"
         android:layout_alignLeft="@+id/value_height"
         android:layout_alignParentRight="true"
         android:ems="10"
-        android:inputType="number" />
+        android:hint="@string/weightunit"
+        android:inputType="number|numberDecimal" />
 
     <Button
         android:id="@+id/btnconfirm"
@@ -100,13 +99,13 @@
         android:layout_marginTop="39dp"
         android:background="@drawable/custom" />
 
-    <ImageView
-        android:id="@+id/imageView1"
+    <Button
+        android:id="@+id/imageButton_cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView01"
+        android:layout_alignLeft="@+id/tvweight"
         android:layout_alignTop="@+id/btnconfirm"
-        android:src="@drawable/cancel" />
+        android:background="@drawable/cancel" />
 
     <ImageButton
         android:id="@+id/imageButton_BMI"
@@ -115,5 +114,16 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:src="@drawable/bmi" />
+
+    <Button
+        android:id="@+id/btnclear"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvage"
+        android:layout_alignRight="@+id/tvuserprofile"
+        android:layout_alignTop="@+id/tvuserprofile"
+        android:layout_toRightOf="@+id/imageButton_BMI"
+        android:text="@string/clear" />
 
 </RelativeLayout>
