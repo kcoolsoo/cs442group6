@@ -64,7 +64,7 @@ public  class MainActivity extends Activity implements LocationListener{
 	  double locallong;
 	  GoogleMap mMap;
 	  PolylineOptions polylineOptions;
-	  TextView speedtext,curlocation,prelocation;
+	  //TextView speedtext,curlocation,prelocation;
 	  static double latbuffer=0;
 	  static double longbuffer=0;
 	  static int i,j=0;
@@ -87,7 +87,7 @@ public  class MainActivity extends Activity implements LocationListener{
                }
             mMap=((MapFragment)getFragmentManager().findFragmentById(R.id.map)).getMap();
            
-            speedtext=(TextView)findViewById(R.id.speedtext);
+           // speedtext=(TextView)findViewById(R.id.speedtext);
             //curlocation=(TextView)findViewById(R.id.curlocation);
             //prelocation=(TextView)findViewById(R.id.prelocation);
            
@@ -125,12 +125,12 @@ public  class MainActivity extends Activity implements LocationListener{
 				String latString=locallat+"";
 				String longString=locallong+"";
 				// TODO Auto-generated method stub
-				Toast.makeText(MainActivity.this,"Currentlocation:"+latString+","+longString ,Toast.LENGTH_SHORT ).show();
+				//Toast.makeText(MainActivity.this,"Currentlocation:"+latString+","+longString ,Toast.LENGTH_SHORT ).show();
 				StringBuilder stringBuilder=new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");  
 				stringBuilder.append("location="+locallat+","+locallong);
 				stringBuilder.append("&radius=50000");
 				stringBuilder.append("&types=grocery_or_supermarket");
-				//stringBuilder.append("&keyword=store or ");
+				//stringBuilder.append("&keyword=store or drink station ");
 				stringBuilder.append("&sensor=true");
 				stringBuilder.append("&key=AIzaSyBrktuxUHngHZ4W3cXMp5mb-QPhjiXvwlY");
 				
@@ -180,8 +180,8 @@ public  class MainActivity extends Activity implements LocationListener{
                String speedString=""+speed;
                String latitudeString=""+latitude;
                String longtitudeString=""+longitude;
-               speedtext.
-               setText(provideString+speedString+"mph\nlat: "+latitudeString+"\nlong: "+longtitudeString+"\nprelat"+latbuffer+"\nprelong"+longbuffer+ischangeString+"\ni: "+i+j+"\ndistance:"+distance);
+               //speedtext.
+              // setText(provideString+speedString+"mph\nlat: "+latitudeString+"\nlong: "+longtitudeString+"\nprelat"+latbuffer+"\nprelong"+longbuffer+ischangeString+"\ni: "+i+j+"\ndistance:"+distance);
                
               // curlocation.setText("lat: "+latitudeString+"long: "+longtitudeString);
                locallat=latitude;
@@ -202,7 +202,7 @@ public  class MainActivity extends Activity implements LocationListener{
                double distance = earthRadius * c;
                String dString=distance+"";
                int meterConversion = 1609;
-               Toast.makeText(this,  dString, Toast.LENGTH_SHORT).show();
+              // Toast.makeText(this,  dString, Toast.LENGTH_SHORT).show();
                return new Float(distance * meterConversion).floatValue();
                
            }

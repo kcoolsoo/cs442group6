@@ -8,7 +8,27 @@
         android:minSdkVersion="13"
         android:targetSdkVersion="19" />
 
-     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <permission
+        android:name="com.example.maptest.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.example.maptest.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="com.gas.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -24,7 +44,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.group6.runningassistant.Step_Counter_Activity"
+            android:name="com.group6.runningassistant.StepCounterActivity"
             android:label="@string/title_activity_step__counter_" >
         </activity>
         <activity
@@ -55,11 +75,21 @@
             android:name="com.group6.runningassistant.BMI"
             android:label="@string/title_activity_userprofile" >
         </activity>
-        
-        
-        
-        <service android:name=".StepService"/>
-        <service android:name=".RecordService"/>
+
+        <service android:name="com.group6.runningassistant.StepService" />
+        <service android:name="com.group6.runningassistant.RecordService" />
+        <service android:name="com.group6.runningassistant.GpsService" />
+
+        <activity
+            android:name="com.group6.runningassistant.MapActivity"
+            android:label="@string/title_activity_map" >
+        </activity>
+         <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyCnNAtTB5btMD0OrDuHL4Fx_jmF8PemLrE"/>
+        <meta-data
+		    android:name="com.google.android.gms.version"
+		    android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>
