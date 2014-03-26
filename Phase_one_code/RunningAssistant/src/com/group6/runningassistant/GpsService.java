@@ -109,6 +109,7 @@ public class GpsService extends Service{
                     Log.i("Callback","Not Null!!");
                     mCallback.speedchanged(speed);
                     mCallback.distanchanged(distance);
+                    mCallback.positionchanged(latitude+","+longitude);
                 }
                
             }
@@ -146,6 +147,7 @@ public class GpsService extends Service{
     public interface ICallback {
         public void speedchanged(float value);
         public void distanchanged(float value);
+        public void positionchanged(String posi);
     }
     private ICallback mCallback;
 

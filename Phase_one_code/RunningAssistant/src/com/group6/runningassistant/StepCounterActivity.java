@@ -1,6 +1,7 @@
 package com.group6.runningassistant;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,6 +22,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class StepCounterActivity extends Activity {
 
@@ -61,7 +63,7 @@ public class StepCounterActivity extends Activity {
 	private static final String KEY_AGE = "age";
 	private static final String KEY_WEIGHT = "weight";
 	private static final String KEY_HEIGHT = "height";
-
+	private ArrayList<String> position = new ArrayList<String>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +75,7 @@ public class StepCounterActivity extends Activity {
 		mDistance = 0;
 		mUtils = Utils.getInstance();
 		mBodyWeight = -1.0f;
-
+	
 		Context context = getApplicationContext();
 		SharedPreferences pref = context.getSharedPreferences(
 				PREF_NAME_USERPROFILE, PREF_MODE);
@@ -329,11 +331,13 @@ public class StepCounterActivity extends Activity {
 		}
 		chronometer.setText(getResources().getString(R.string.initclock));
 		timeWhenStopped = 0;
+		position.clear();
 	}
 
 	private static final int STEPS_MSG = 1;
 	private static final int SPEED_MSG = 2;
 	private static final int DISTANCE_MSG = 3;
+	private static final int POSITION_MSG = 4;
 
 	// TODO: unite all into 1 type of message
 	private StepService.ICallback mCallback = new StepService.ICallback() {
@@ -355,6 +359,10 @@ public class StepCounterActivity extends Activity {
 			mHandler.sendMessage(mHandler.obtainMessage(DISTANCE_MSG,
 					(int) value * 1000000, 0));
 
+		}
+		@Override 
+		public void positionchanged(String posi){
+		    mHandler.sendMessage(mHandler.obtainMessage(POSITION_MSG,posi));
 		}
 	};
 
@@ -410,7 +418,14 @@ public class StepCounterActivity extends Activity {
 						+ getResources().getString(R.string.distanceunit));
 				calorietext.setText(df.format(mCalories) + "   "
 						+ getResources().getString(R.string.calorieunit));
+				
 				break;
+			case POSITION_MSG:
+			    if (t % 5 == 0 && t != 0){
+			        position.add((String)msg.obj);
+			        Toast.makeText(getApplicationContext(),  position.get(position.size()-1), Toast.LENGTH_SHORT).show();
+			    }
+			    break;
 			default:
 				super.handleMessage(msg);
 			}
