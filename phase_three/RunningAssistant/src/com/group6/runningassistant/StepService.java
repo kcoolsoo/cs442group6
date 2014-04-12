@@ -290,5 +290,6 @@ public class StepService extends Service {
     public void setSensitivity(float value){
         mSettings.edit().putString("sensitivity", value+"").commit(); 
     }
+    
 }
 

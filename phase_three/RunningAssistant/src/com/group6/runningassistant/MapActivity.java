@@ -367,38 +367,39 @@ public  class MapActivity extends Activity implements LocationListener{
         
                    // Clears all the existing markers
                    mMap.clear();
-        
-                   for(int i=0;i<list.size();i++){
-        
-                       // Creating a marker
-                       MarkerOptions markerOptions = new MarkerOptions();
-        
-                       // Getting a place from the places list
-                       HashMap<String, String> hmPlace = list.get(i);
-        
-                       // Getting latitude of the place
-                       double lat = Double.parseDouble(hmPlace.get("lat"));
-        
-                       // Getting longitude of the place
-                       double lng = Double.parseDouble(hmPlace.get("lng"));
-        
-                       // Getting name
-                       String name = hmPlace.get("place_name");
-        
-                       // Getting vicinity
-                       String vicinity = hmPlace.get("vicinity");
-        
-                       LatLng latLng = new LatLng(lat, lng);
-        
-                       // Setting the position for the marker
-                       markerOptions.position(latLng);
-        
-                       // Setting the title for the marker.
-                       //This will be displayed on taping the marker
-                       markerOptions.title(name + " : " + vicinity);
-        
-                       // Placing a marker on the touched position
-                       mMap.addMarker(markerOptions);
+                   if (list!=null){
+                       for(int i=0;i<list.size();i++){
+            
+                           // Creating a marker
+                           MarkerOptions markerOptions = new MarkerOptions();
+            
+                           // Getting a place from the places list
+                           HashMap<String, String> hmPlace = list.get(i);
+            
+                           // Getting latitude of the place
+                           double lat = Double.parseDouble(hmPlace.get("lat"));
+            
+                           // Getting longitude of the place
+                           double lng = Double.parseDouble(hmPlace.get("lng"));
+            
+                           // Getting name
+                           String name = hmPlace.get("place_name");
+            
+                           // Getting vicinity
+                           String vicinity = hmPlace.get("vicinity");
+            
+                           LatLng latLng = new LatLng(lat, lng);
+            
+                           // Setting the position for the marker
+                           markerOptions.position(latLng);
+            
+                           // Setting the title for the marker.
+                           //This will be displayed on taping the marker
+                           markerOptions.title(name + " : " + vicinity);
+            
+                           // Placing a marker on the touched position
+                           mMap.addMarker(markerOptions);
+                       }
                    }
                }
            }

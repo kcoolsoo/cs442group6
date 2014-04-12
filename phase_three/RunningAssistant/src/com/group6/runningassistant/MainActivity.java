@@ -64,8 +64,10 @@ public class MainActivity extends Activity {
     private static final String KEY_AGE = "age";
     private static final String KEY_WEIGHT = "weight";
     private static final String KEY_HEIGHT = "height";
-    public static ArrayList<String> position = new ArrayList<String>();
-    
+    private static ArrayList<String> position = new ArrayList<String>();
+    private static ArrayList<String> speedtime = new ArrayList<String>();
+    private static ArrayList<String> distancetime = new ArrayList<String>();
+    private static ArrayList<String> caltime = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,13 +116,16 @@ public class MainActivity extends Activity {
                             t = SystemClock.elapsedRealtime()
                                     - chronometer.getBase();
                             
-                              Log.i("time ",t+"");
+                           //   Log.i("time ",t+"");
                             display_time();
                             if(t != 0){
                                 avespeedtext.setText(dfonedc.format(((float)mDistance *1000f / (float)t*2.23694))
                                         + "   "
                                         + getResources().getString(
                                                 R.string.avespeedunit));
+                            }
+                            if ((int)t/1000 != 0){
+                                
                             }
                         }
                     });
@@ -300,6 +305,10 @@ public class MainActivity extends Activity {
         bindService(new Intent(MainActivity.this, StepService.class),
                 mConnection, Context.BIND_AUTO_CREATE
                         + Context.BIND_DEBUG_UNBIND);
+        Intent gpsintent = new Intent(MainActivity.this, GpsService.class);
+        gpsintent.putExtra("stoptime", timeWhenStopped);
+        gpsintent.putExtra("calorees", mCalories);
+        gpsintent.putExtra("distance", mDistance);
         bindService(new Intent(MainActivity.this, GpsService.class),
                 gpsConnection, Context.BIND_AUTO_CREATE
                         + Context.BIND_DEBUG_UNBIND);
@@ -336,15 +345,14 @@ public class MainActivity extends Activity {
 
         }
         if (gpsService != null) {
-            gpsService.reset();
-            speedtext.setText(getResources().getString(R.string.initspeed));
-            mDistance = 0;
-            currentspeed = 0;
-            mCalories = 0;
-            distancetext.setText(getResources().getString(R.string.initdist));
-            calorietext.setText(getResources().getString(R.string.initcalorie));
+            gpsService.resetvalue();
         }
-    
+        speedtext.setText(getResources().getString(R.string.initspeed));
+        mDistance = 0;
+        currentspeed = 0;
+        mCalories = 0;
+        distancetext.setText(getResources().getString(R.string.initdist));
+        calorietext.setText(getResources().getString(R.string.initcalorie));
         timeWhenStopped = 0;
         t=0;
         chronometer.setBase(SystemClock.elapsedRealtime());
@@ -473,6 +481,7 @@ public class MainActivity extends Activity {
         
         return position;
     }
+    
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
         case R.id.action_settings:

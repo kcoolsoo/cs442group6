@@ -9,7 +9,9 @@ import android.location.Location;
 import android.os.Binder;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.SystemClock;
 import android.util.Log;
+import android.widget.Chronometer;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.location.Criteria;
@@ -42,6 +44,9 @@ public class GpsService extends Service{
     private static double METRIC_WALKING_FACTOR = 0.708;
     private static double RUNNING_SPEED = 5;
     private float mCalories;
+    private Chronometer chronometer;
+    long timeWhenStopped = 0;
+    long t;
     
     public class GpsBinder extends Binder {
         GpsService getService() {
@@ -90,7 +95,7 @@ public class GpsService extends Service{
         location = locationManager.getLastKnownLocation(provider);
         
        
-        
+     
        
         
         
@@ -145,6 +150,7 @@ public class GpsService extends Service{
                     mCallback.distanchanged(distance);
                     mCallback.positionchanged(latitude+","+longitude);
                     mCallback.caloriechanged(mCalories);
+                    
                 }
                
             }
@@ -168,7 +174,37 @@ public class GpsService extends Service{
         locationManager.requestLocationUpdates(provider, 1000, 0, locationlistener);
     }
     
- 
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        
+        
+        super.onStartCommand(intent, flags, startId);
+        timeWhenStopped = (long)intent.getIntExtra("stoptime", 0);
+        Log.i("StopTimeSerivce",timeWhenStopped+"");
+        distance = intent.getFloatExtra("distance", 0);
+        Log.i("DistanceSerivce",distance+"");
+        mCalories = intent.getFloatExtra("calories", 0);
+        Log.i("CalSerivce",mCalories+"");
+//        chronometer =new Chronometer( getApplicationContext());
+//        chronometer.setText(getResources().getString(R.string.initclock));
+//        chronometer.setBase(SystemClock.elapsedRealtime()
+//                + timeWhenStopped);
+//        chronometer
+//        .setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+//            @Override
+//            public void onChronometerTick(Chronometer chronometer) {
+//
+//                t = SystemClock.elapsedRealtime()
+//                        - chronometer.getBase();
+//                Log.i("TimeINSerivce",t+"");
+//            }
+//        });
+//        chronometer.start();
+       
+        // We want this service to continue running until it is explicitly
+        // stopped, so return sticky.
+        return START_STICKY;
+    }
     
     
     @Override
@@ -217,6 +253,18 @@ public class GpsService extends Service{
       //  Toast.makeText(this,  dString, Toast.LENGTH_SHORT).show();
         return new Float(distance * meterConversion).floatValue();
         
+    }
+    
+    
+    public void resetvalue(){
+        t =0;
+        mCalories= 0;
+        distance = 0;
+        speed = 0;
+        
+    }
+    public void setTime(int stoptime){
+        t = stoptime;
     }
 }
     
