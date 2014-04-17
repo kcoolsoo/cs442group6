@@ -3,6 +3,8 @@ package com.group6.runningassistant;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -22,6 +24,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -96,6 +99,8 @@ public class MainActivity extends Activity {
         Button pause = (Button) findViewById(R.id.pause);
         Button reset = (Button) findViewById(R.id.reset);
         Button quit = (Button) findViewById(R.id.quit);
+        ImageButton save1 =(ImageButton) findViewById(R.id.save);
+        ImageButton open =(ImageButton) findViewById(R.id.open);
      
         df = new DecimalFormat();
         dfonedc = new DecimalFormat();
@@ -173,6 +178,32 @@ public class MainActivity extends Activity {
                 resetValues(true);
                 finish();
 
+            }
+        });
+        open.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+            	Intent i = new Intent(MainActivity.this,Mysqlview.class);
+				startActivity(i);
+            	resetValues(true);
+            }
+        });
+        save1.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+            	Toast.makeText(MainActivity.this,"Saving",Toast.LENGTH_LONG).show();
+    			try{
+    			//String price = tot.getText().toString();
+    			String mydate = java.text.DateFormat.getDateInstance().format(Calendar.getInstance().getTime());
+    			//String name1=name.replaceAll("null\n\t","");
+    			Storage entry = new Storage(MainActivity.this);
+    			entry.write();
+    			entry.createEntry( mydate,""+mDistance,calorietext.getText().toString(),chronometer.getText().toString() );
+    			entry.close();
+    			Toast.makeText(MainActivity.this,"Record Saved to Database",Toast.LENGTH_LONG).show();
+    			}catch (Exception e){
+    				e.printStackTrace();
+    				Toast.makeText(MainActivity.this,"error in saving",Toast.LENGTH_LONG).show();
+    				}
+            	resetValues(true);
             }
         });
     

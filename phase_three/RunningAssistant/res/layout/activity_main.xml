@@ -116,6 +116,25 @@
            android:gravity="center_horizontal"
            android:text="@string/quit" />
 
-      
+       <ImageButton
+           android:id="@+id/save"
+           android:layout_width="100dp"
+           android:layout_height="100dp"
+           android:layout_below="@+id/quit"
+           android:layout_centerHorizontal="true"
+           android:src="@drawable/save" 
+           android:scaleType="fitXY"/>
+
+       <ImageButton
+           android:id="@+id/open"
+           android:layout_width="100dp"
+           android:layout_height="100dp"
+           android:layout_alignBottom="@+id/save"
+           android:layout_alignParentRight="true"
+           android:layout_alignTop="@+id/save"
+           android:layout_marginLeft="28dp"
+           android:layout_toRightOf="@+id/save"
+           android:src="@drawable/open" 
+           android:scaleType="fitXY"/>
 
 </RelativeLayout>
