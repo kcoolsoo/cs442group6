@@ -20,6 +20,7 @@ public class Statistics extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.statistics);
+		final Bundle bundle = getIntent().getExtras();
 		
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, 
 		        android.R.layout.simple_list_item_1, menu);
@@ -40,6 +41,7 @@ public class Statistics extends Activity {
 			
 			}
 			
+			in.putExtras(bundle);
 			startActivity(in);
 			
 		}

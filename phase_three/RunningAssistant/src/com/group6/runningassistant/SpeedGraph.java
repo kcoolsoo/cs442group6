@@ -1,5 +1,7 @@
 package com.group6.runningassistant;
 
+import java.util.ArrayList;
+
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GraphViewSeries;
 import com.jjoe64.graphview.LineGraphView;
@@ -11,37 +13,51 @@ import android.os.Bundle;
 import android.widget.LinearLayout;
 
 public class SpeedGraph extends Activity {
-
+	double n;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.speed_graph);
+		Bundle bundle = getIntent().getExtras();
+        ArrayList<String> ar = bundle.getStringArrayList("speed_key");
+        String [] distance = ar.toArray(new String[ar.size()]);
+       n=1;
+        if(ar.size()>10)
+        {
+        	n=Math.ceil((ar.size()/10)+1.0);
+        }
+        double [] dis = new double[1000];
+        for(int i=0;i<1000;i++)
+              	dis[i]=0;
+        
+        for(int i=0;i<ar.size();i++)
+        {
+        	 dis[i]=Double.parseDouble(distance[i]);
+        }
+       
+        GraphViewData[] data = new GraphViewData[(int) (ar.size()/n)+2]; 
+        data[0]=new GraphViewData(0, 0); 
+       int i;
+        for (i=1; i<=(int) (ar.size()/n); i++) {  
+            data[i] = new GraphViewData(n*i, dis[(int) (n*i)]);  
+         }
+        data[i] = new GraphViewData(ar.size()-1, dis[ar.size()-1]);
 	
+		 
 
-	GraphViewSeries exampleSeries = new GraphViewSeries(new GraphViewData[] {
-		   
-		   //	for(i=0;i<30;i++)  
-			    new GraphViewData(1,1)
-		      , new GraphViewData(2, 1.5d)
-		      , new GraphViewData(3, 2.5d)
-		      , new GraphViewData(4, 1.0d)
-		      , new GraphViewData(5,0 )
-			  , new GraphViewData(5,0 )
-			  , new GraphViewData(6, 1.0d)
-			  , new GraphViewData(7,2 )
-		});
+	
 		 
 		GraphView graphView = new LineGraphView(
 		      this // context
 		      , "Speed-Time Graph" // heading
 		);
-		graphView.addSeries(exampleSeries); // data
+		graphView.addSeries(new GraphViewSeries(data)); // data
 		graphView.getGraphViewStyle().setGridColor(Color.GREEN);
 		graphView.getGraphViewStyle().setHorizontalLabelsColor(Color.YELLOW);
 		graphView.getGraphViewStyle().setVerticalLabelsColor(Color.RED);
 		graphView.getGraphViewStyle().setTextSize((float) 20);
-		graphView.getGraphViewStyle().setNumHorizontalLabels(5);
-		graphView.getGraphViewStyle().setNumVerticalLabels(6);
+		graphView.getGraphViewStyle().setNumHorizontalLabels(10);
+		graphView.getGraphViewStyle().setNumVerticalLabels(10);
 		//graphView.getGraphViewStyle().setVerticalLabelsWidth(300);
 		
 		graphView.getGraphViewStyle().setVerticalLabelsAlign(Align.CENTER);

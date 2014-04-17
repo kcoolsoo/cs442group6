@@ -504,6 +504,56 @@ public class MainActivity extends Activity {
             Intent passIntent=new Intent(MainActivity.this,MapActivity.class);
             startActivity(passIntent);
             return true;
+            
+        case R.id.show_report:
+        	
+        	/******************************* Just for Testing*************************/
+        	
+        	distancetime.add("0");
+        	distancetime.add("1");
+        	distancetime.add("2");
+        	distancetime.add("7");
+        	distancetime.add("5");
+        	distancetime.add("0");
+        	distancetime.add("1");
+        	distancetime.add("3");
+        	distancetime.add("4");
+        	distancetime.add("2");
+        	distancetime.add("6");
+        	distancetime.add("5");
+        	distancetime.add("1");
+        	distancetime.add("3");
+        	distancetime.add("2");
+        	distancetime.add("0");
+        	distancetime.add("1");
+        	distancetime.add("2");
+        	distancetime.add("7");
+        	distancetime.add("2");
+        	distancetime.add("0");
+        	distancetime.add("1");
+        	distancetime.add("3");
+        	distancetime.add("4");
+        	distancetime.add("2");
+        	distancetime.add("6");
+        	distancetime.add("5");
+        	distancetime.add("1");
+        	distancetime.add("3");
+        	caltime.add("9");
+        	caltime.add("7");
+        	speedtime.add("8");
+        	speedtime.add("8");
+        /********************************* end test***********************/
+        	
+        	Bundle bundle = new Bundle();
+            bundle.putStringArrayList("speed_key", speedtime);
+            bundle.putStringArrayList("distance_key", distancetime);
+            bundle.putStringArrayList("cal_key", caltime);
+        	Intent passIntent1=new Intent(MainActivity.this,Statistics.class);
+            passIntent1.putExtras(bundle);
+            if(speedtime.isEmpty()||caltime.isEmpty()||distancetime.isEmpty())
+            	 	Toast.makeText(MainActivity.this,"No Data To Display",Toast.LENGTH_LONG).show();
+                else
+                	startActivity(passIntent1);
         }
         return false;
     }
