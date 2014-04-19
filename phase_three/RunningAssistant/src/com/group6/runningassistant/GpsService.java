@@ -1,8 +1,11 @@
 package com.group6.runningassistant;
 
 import com.google.android.gms.maps.model.LatLng;
+
+import android.app.AlertDialog;
 import android.app.Service;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.Location;
@@ -10,6 +13,7 @@ import android.os.Binder;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.SystemClock;
+import android.provider.Settings;
 import android.util.Log;
 import android.widget.Chronometer;
 import android.widget.TextView;
@@ -45,6 +49,7 @@ public class GpsService extends Service{
     private static double RUNNING_SPEED = 5;
     private float mCalories;
     private Chronometer chronometer;
+    private Context context;
     long timeWhenStopped = 0;
     long t;
     
@@ -68,7 +73,7 @@ public class GpsService extends Service{
         super.onCreate();
         mBodyWeight = -1.0f;
         mCalories = 0;
-        Context context = getApplicationContext();
+        context = getApplicationContext();
         SharedPreferences pref = context.getSharedPreferences(
                 PREF_NAME_USERPROFILE, PREF_MODE);
         
@@ -158,6 +163,11 @@ public class GpsService extends Service{
             @Override
             public void onProviderDisabled(String arg0) {
                 // TODO Auto-generated method stub
+                Toast toast = Toast.makeText(context, "GPS disabled", Toast.LENGTH_LONG);
+                toast.show();
+                if (mCallback != null){
+                    mCallback.gpsstoped(1);
+                }
                 
             } 
             @Override
@@ -220,6 +230,7 @@ public class GpsService extends Service{
         public void distanchanged(float value);
         public void positionchanged(String posi);
         public void caloriechanged(float value);
+        public void gpsstoped(int value);
     }
     private ICallback mCallback;
 

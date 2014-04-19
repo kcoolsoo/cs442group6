@@ -5,15 +5,19 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
@@ -76,7 +80,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "[ACTIVITY] onCreate");
-
+        currentspeed = 0;
         mStepValue = 0;
         mCalories = 0;
         mDistance = 0;
@@ -129,12 +133,15 @@ public class MainActivity extends Activity {
                                         + getResources().getString(
                                                 R.string.avespeedunit));
                             }
-                            if ((int)t/1000 != 0){
-                                
+                            if ((int)(t/1000) % 5 == 0){
+                                speedtime.add(currentspeed+","+(int)(t/1000));
+                                distancetime.add(mDistance+","+(int)(t/1000));
+                                caltime.add(mCalories+","+(int)(t/1000));
                             }
                         }
                     });
         }
+
 
         start.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
@@ -142,12 +149,14 @@ public class MainActivity extends Activity {
                     startActivity(new Intent(MainActivity.this,
                             UserProfile.class));
                     //finish();
-                } else if (!mIsRunning) {
-                    startStepService();
-                    bindStepService();
-                    chronometer.setBase(SystemClock.elapsedRealtime()
-                            + timeWhenStopped);
-                    chronometer.start();
+                } else if(checkGPS()){
+                    if (!mIsRunning) {
+                        startStepService();
+                        bindStepService();
+                        chronometer.setBase(SystemClock.elapsedRealtime()
+                                + timeWhenStopped);
+                        chronometer.start();
+                    }
                 }
             }
         });
@@ -392,11 +401,13 @@ public class MainActivity extends Activity {
         position.clear();
     }
 
+
     private static final int STEPS_MSG = 1;
     private static final int SPEED_MSG = 2;
     private static final int DISTANCE_MSG = 3;
     private static final int POSITION_MSG = 4;
     private static final int CALORIE_MSG = 5;
+    private static final int GPS_STOP = 6;
 
     // TODO: unite all into 1 type of message
     private StepService.ICallback mCallback = new StepService.ICallback() {
@@ -428,7 +439,11 @@ public class MainActivity extends Activity {
             mHandler.sendMessage(mHandler.obtainMessage(CALORIE_MSG,
                     (int) value * 1000000,0));
         }
+        public void gpsstoped(int value){
+            mHandler.sendMessage(mHandler.obtainMessage(GPS_STOP, value, 0));
+        }
     };
+
 
     private ServiceConnection mConnection = new ServiceConnection() {
         public void onServiceConnected(ComponentName className, IBinder service) {
@@ -492,13 +507,28 @@ public class MainActivity extends Activity {
                 calorietext.setText(df.format(mCalories) + "   "
                         + getResources().getString(R.string.calorieunit));
                 break;
+            case GPS_STOP:
+              
+                if(msg.arg1 ==1){
+                   if(checkGPS()){
+                       if (mIsRunning) {
+                           unbindStepService();
+                           stopStepService();
+                           speedtext.setText(R.string.initspeed);
+                           timeWhenStopped = chronometer.getBase()
+                                   - SystemClock.elapsedRealtime();
+                           chronometer.stop();
+                       }
+                   }
+                }
+                break;
             default:
                 super.handleMessage(msg);
             }
         }
 
     };
-
+    
     private void display_time() {
         int h = (int) (t / 3600000);
         int m = (int) (t - h * 3600000) / 60000;
@@ -519,61 +549,28 @@ public class MainActivity extends Activity {
             
             return true; 
         case R.id.showpath:
-
-            if(!position.isEmpty()){
-                Bundle bundle = new Bundle();
-                bundle.putStringArrayList("key", position);
-                Intent passIntent=new Intent(MainActivity.this,MapActivity.class);
-                passIntent.putExtras(bundle);
-                passIntent.putExtra("Showmap", true);
-                startActivity(passIntent);
-            }else{
-                Toast.makeText(getApplicationContext(),  "Please Move First", Toast.LENGTH_SHORT).show();
+            if(checkNetwork()){
+                if(!position.isEmpty()){
+                    Bundle bundle = new Bundle();
+                    bundle.putStringArrayList("key", position);
+                    Intent passIntent=new Intent(MainActivity.this,MapActivity.class);
+                    passIntent.putExtras(bundle);
+                    passIntent.putExtra("Showmap", true);
+                    startActivity(passIntent);
+                }else{
+                    Toast.makeText(getApplicationContext(),  "Please Move First", Toast.LENGTH_SHORT).show();
+                }
             }
             return true;
         case R.id.findstore:
-            Intent passIntent=new Intent(MainActivity.this,MapActivity.class);
-            startActivity(passIntent);
+            if(checkNetwork()){
+                Intent passIntent=new Intent(MainActivity.this,MapActivity.class);
+                startActivity(passIntent);
+            }
             return true;
             
         case R.id.show_report:
         	
-        	/******************************* Just for Testing*************************/
-        	
-        	distancetime.add("0");
-        	distancetime.add("1");
-        	distancetime.add("2");
-        	distancetime.add("7");
-        	distancetime.add("5");
-        	distancetime.add("0");
-        	distancetime.add("1");
-        	distancetime.add("3");
-        	distancetime.add("4");
-        	distancetime.add("2");
-        	distancetime.add("6");
-        	distancetime.add("5");
-        	distancetime.add("1");
-        	distancetime.add("3");
-        	distancetime.add("2");
-        	distancetime.add("0");
-        	distancetime.add("1");
-        	distancetime.add("2");
-        	distancetime.add("7");
-        	distancetime.add("2");
-        	distancetime.add("0");
-        	distancetime.add("1");
-        	distancetime.add("3");
-        	distancetime.add("4");
-        	distancetime.add("2");
-        	distancetime.add("6");
-        	distancetime.add("5");
-        	distancetime.add("1");
-        	distancetime.add("3");
-        	caltime.add("9");
-        	caltime.add("7");
-        	speedtime.add("8");
-        	speedtime.add("8");
-        /********************************* end test***********************/
         	
         	Bundle bundle = new Bundle();
             bundle.putStringArrayList("speed_key", speedtime);
@@ -588,4 +585,84 @@ public class MainActivity extends Activity {
         }
         return false;
     }
+    
+    private boolean checkGPS(){
+        final Context context =this;
+        LocationManager lm = null;
+        boolean gps_enabled =false;
+           if(lm==null)
+               lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+           try{
+               gps_enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+           }catch(Exception ex){
+               Log.i("Check avaliable",ex.toString());
+           }
+          
+
+          if(!gps_enabled){
+               AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+               dialog.setMessage(context.getResources().getString(R.string.gps_not_enabled));
+               dialog.setPositiveButton(context.getResources().getString(R.string.open_location_settings), new DialogInterface.OnClickListener() {
+
+                   @Override
+                   public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                       // TODO Auto-generated method stub
+                       Intent myIntent = new Intent( Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                       context.startActivity(myIntent);
+                       //get gps
+                   }
+               });
+               dialog.setNegativeButton(context.getString(R.string.Cancel), new DialogInterface.OnClickListener() {
+
+                   @Override
+                   public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                       // TODO Auto-generated method stub
+
+                   }
+               });
+               dialog.show();
+
+           }
+          return gps_enabled;
+    }
+    
+    
+    private boolean checkNetwork(){
+        final Context context =this;
+        LocationManager lm = null;
+        boolean network_enabled =false;
+        try{
+            network_enabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        }catch(Exception ex){
+            Log.i("Check Network",ex.toString());
+        }
+        if(!network_enabled){
+            AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+            dialog.setMessage(context.getResources().getString(R.string.network_not_enabled));
+            dialog.setPositiveButton(context.getResources().getString(R.string.open_location_settings), new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                    // TODO Auto-generated method stub
+                    Intent myIntent = new Intent( Settings.ACTION_WIFI_SETTINGS);
+                    context.startActivity(myIntent);
+                    //get gps
+                }
+            });
+            dialog.setNegativeButton(context.getString(R.string.Cancel), new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                    // TODO Auto-generated method stub
+
+                }
+            });
+            dialog.show();
+        }
+        return network_enabled;
+    }
 }
+
+
+
+
