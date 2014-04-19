@@ -46,7 +46,7 @@ public class GpsService extends Service{
     private static final String KEY_HEIGHT = "height";
     private static double METRIC_RUNNING_FACTOR = 1.02784823;
     private static double METRIC_WALKING_FACTOR = 0.708;
-    private static double RUNNING_SPEED = 5;
+    private static double RUNNING_SPEED = 2.2352;
     private float mCalories;
     private Chronometer chronometer;
     private Context context;
@@ -133,7 +133,7 @@ public class GpsService extends Service{
                     j++; // for test
                 }
                 
-                speed= location.getSpeed()*(float)2.236936;
+                speed= location.getSpeed();
                 
                 String provideString = location.getProvider();
                 String speedString=""+speed;

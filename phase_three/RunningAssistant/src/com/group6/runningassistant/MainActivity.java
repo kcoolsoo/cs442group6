@@ -130,13 +130,14 @@ public class MainActivity extends Activity {
                            //   Log.i("time ",t+"");
                             display_time();
                             if(t != 0){
-                                avespeedtext.setText(dfonedc.format(((float)mDistance *1000f / (float)t*2.23694))
+                                avespeedtext.setText(dfonedc.format(((float)mDistance *1000f / (float)t))
                                         + "   "
                                         + getResources().getString(
                                                 R.string.avespeedunit));
                             }
-                            if ((int)(t/1000) % 5 == 0){
+                            if ((int)(t/1000) % 60 == 0){
                                 speedtime.add(currentspeed+"");
+                                Log.i("Distance",mDistance+"");
                                 distancetime.add(mDistance+"");
                                 caltime.add(mCalories+"");
                             }
@@ -195,26 +196,30 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
             	Intent i = new Intent(MainActivity.this,Mysqlview.class);
 				startActivity(i);
-            	resetValues(true);
+            	//resetValues(true);
             }
         });
         save1.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-            	Toast.makeText(MainActivity.this,"Saving",Toast.LENGTH_LONG).show();
-    			try{
-    			//String price = tot.getText().toString();
-    			String mydate = java.text.DateFormat.getDateInstance().format(Calendar.getInstance().getTime());
-    			//String name1=name.replaceAll("null\n\t","");
-    			Storage entry = new Storage(MainActivity.this);
-    			entry.write();
-    			entry.createEntry( mydate,""+mDistance,calorietext.getText().toString(),chronometer.getText().toString() );
-    			entry.close();
-    			Toast.makeText(MainActivity.this,"Record Saved to Database",Toast.LENGTH_LONG).show();
-    			}catch (Exception e){
-    				e.printStackTrace();
-    				Toast.makeText(MainActivity.this,"error in saving",Toast.LENGTH_LONG).show();
-    				}
-            	resetValues(true);
+                if (!mIsRunning){
+                	Toast.makeText(MainActivity.this,"Saving",Toast.LENGTH_SHORT).show();
+        			try{
+        			//String price = tot.getText().toString();
+        			String mydate = java.text.DateFormat.getDateInstance().format(Calendar.getInstance().getTime());
+        			//String name1=name.replaceAll("null\n\t","");
+        			Storage entry = new Storage(MainActivity.this);
+        			entry.write();
+        			entry.createEntry( mydate,""+mDistance,calorietext.getText().toString(),chronometer.getText().toString() );
+        			entry.close();
+        			Toast.makeText(MainActivity.this,"Record Saved to Database",Toast.LENGTH_SHORT).show();
+        			}catch (Exception e){
+        				e.printStackTrace();
+        				Toast.makeText(MainActivity.this,"error in saving",Toast.LENGTH_SHORT).show();
+        			}
+                	resetValues(true);
+                }else{
+                    Toast.makeText(getApplicationContext(),  "Please stop running first", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     
@@ -426,13 +431,13 @@ public class MainActivity extends Activity {
         @Override
         public void speedchanged(float value) {
             mHandler.sendMessage(mHandler.obtainMessage(SPEED_MSG,
-                    (int) value * 1000000, 0));
+                    (int) (value * 1000000), 0));
         }
 
         @Override
         public void distanchanged(float value) {
             mHandler.sendMessage(mHandler.obtainMessage(DISTANCE_MSG,
-                    (int) value * 1000000, 0));
+                    (int) (value * 1000000), 0));
 
         }
         @Override 
@@ -442,7 +447,7 @@ public class MainActivity extends Activity {
         @Override 
         public void caloriechanged(float value){
             mHandler.sendMessage(mHandler.obtainMessage(CALORIE_MSG,
-                    (int) value * 1000000,0));
+                    (int) (value * 1000000),0));
         }
         public void gpsstoped(int value){
             mHandler.sendMessage(mHandler.obtainMessage(GPS_STOP, value, 0));
@@ -487,7 +492,7 @@ public class MainActivity extends Activity {
                 break;
             case SPEED_MSG:
                 currentspeed = (float)msg.arg1 / 1000000f;
-                speedtext.setText(currentspeed + "   "
+                speedtext.setText(dfonedc.format(currentspeed) + "   "
                         + getResources().getString(R.string.speedunit));
                 break;
             case DISTANCE_MSG:
@@ -498,7 +503,7 @@ public class MainActivity extends Activity {
 //                        // Distance:
 //                        * (mDistance - previousdis) // centimeters
 //                        / 1000.0; // centimeters/kilometer
-                distancetext.setText(mDistance + "   "
+                distancetext.setText(dfonedc.format(mDistance) + "   "
                         + getResources().getString(R.string.distanceunit));
                           
                 break;

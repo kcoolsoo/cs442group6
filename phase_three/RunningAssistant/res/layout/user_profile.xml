@@ -91,29 +91,12 @@
         android:inputType="number|numberDecimal" />
 
     <Button
-        android:id="@+id/btnconfirm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/value_weight"
-        android:layout_below="@+id/value_weight"
-        android:layout_marginTop="39dp"
-        android:background="@drawable/custom" />
-
-    <Button
-        android:id="@+id/imageButton_cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvweight"
-        android:layout_alignTop="@+id/btnconfirm"
-        android:background="@drawable/cancel" />
-
-    <ImageButton
         android:id="@+id/imageButton_BMI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/bmi" />
+        android:text="Show BMI" />
 
     <Button
         android:id="@+id/btnclear"
@@ -125,5 +108,44 @@
         android:layout_alignTop="@+id/tvuserprofile"
         android:layout_toRightOf="@+id/imageButton_BMI"
         android:text="@string/clear" />
+
+    <Button
+        android:id="@+id/imageButton_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvweight"
+        android:layout_below="@+id/radioGroup1"
+        android:background="@drawable/cancel" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/value_weight"
+        android:layout_below="@+id/tvweight"
+        android:orientation="vertical" >
+
+        <RadioButton
+            android:id="@+id/heigh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="High Senstivity" />
+
+        <RadioButton
+            android:id="@+id/low"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="Low Senstivity" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnconfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageButton_cancel"
+        android:layout_alignRight="@+id/radioGroup1"
+        android:background="@drawable/custom" />
 
 </RelativeLayout>
