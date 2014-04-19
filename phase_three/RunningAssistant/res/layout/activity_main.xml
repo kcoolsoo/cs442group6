@@ -135,6 +135,7 @@
            android:layout_marginLeft="28dp"
            android:layout_toRightOf="@+id/save"
            android:src="@drawable/open" 
+           
            android:scaleType="fitXY"/>
 
 </RelativeLayout>

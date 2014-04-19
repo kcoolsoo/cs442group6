@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -134,9 +136,9 @@ public class MainActivity extends Activity {
                                                 R.string.avespeedunit));
                             }
                             if ((int)(t/1000) % 5 == 0){
-                                speedtime.add(currentspeed+","+(int)(t/1000));
-                                distancetime.add(mDistance+","+(int)(t/1000));
-                                caltime.add(mCalories+","+(int)(t/1000));
+                                speedtime.add(currentspeed+"");
+                                distancetime.add(mDistance+"");
+                                caltime.add(mCalories+"");
                             }
                         }
                     });
@@ -335,6 +337,9 @@ public class MainActivity extends Activity {
             mIsRunning = true;
             startService(new Intent(MainActivity.this, StepService.class));
             Intent gpsintent = new Intent(MainActivity.this, GpsService.class);
+            gpsintent.putExtra("stoptime", timeWhenStopped);
+            gpsintent.putExtra("calorees", mCalories);
+            gpsintent.putExtra("distance", mDistance);
             startService(gpsintent);
 
         }
@@ -349,7 +354,7 @@ public class MainActivity extends Activity {
         gpsintent.putExtra("stoptime", timeWhenStopped);
         gpsintent.putExtra("calorees", mCalories);
         gpsintent.putExtra("distance", mDistance);
-        bindService(new Intent(MainActivity.this, GpsService.class),
+        bindService(gpsintent,
                 gpsConnection, Context.BIND_AUTO_CREATE
                         + Context.BIND_DEBUG_UNBIND);
     }
@@ -546,7 +551,7 @@ public class MainActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
         case R.id.action_settings:
-            
+            startActivity(new Intent(MainActivity.this,UserProfile.class));
             return true; 
         case R.id.showpath:
             if(checkNetwork()){
@@ -629,12 +634,15 @@ public class MainActivity extends Activity {
     
     private boolean checkNetwork(){
         final Context context =this;
-        LocationManager lm = null;
         boolean network_enabled =false;
-        try{
-            network_enabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-        }catch(Exception ex){
-            Log.i("Check Network",ex.toString());
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getNetworkInfo(0);
+        if (netInfo != null && netInfo.getState()==NetworkInfo.State.CONNECTED) {
+            network_enabled= true;
+        }else {
+            netInfo = cm.getNetworkInfo(1);
+            if(netInfo!=null && netInfo.getState()==NetworkInfo.State.CONNECTED)
+                network_enabled= true;
         }
         if(!network_enabled){
             AlertDialog.Builder dialog = new AlertDialog.Builder(context);

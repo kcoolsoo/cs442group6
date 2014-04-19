@@ -189,12 +189,14 @@ public class GpsService extends Service{
         
         
         super.onStartCommand(intent, flags, startId);
-        timeWhenStopped = (long)intent.getIntExtra("stoptime", 0);
-        Log.i("StopTimeSerivce",timeWhenStopped+"");
-        distance = intent.getFloatExtra("distance", 0);
-        Log.i("DistanceSerivce",distance+"");
-        mCalories = intent.getFloatExtra("calories", 0);
-        Log.i("CalSerivce",mCalories+"");
+        if (intent != null){
+            timeWhenStopped = (long)intent.getIntExtra("stoptime", 0);
+            Log.i("StopTimeSerivce",timeWhenStopped+"");
+            distance = intent.getFloatExtra("distance", 0);
+            Log.i("DistanceSerivce",distance+"");
+            mCalories = intent.getFloatExtra("calories", 0);
+            Log.i("CalSerivce",mCalories+"");
+        }
 //        chronometer =new Chronometer( getApplicationContext());
 //        chronometer.setText(getResources().getString(R.string.initclock));
 //        chronometer.setBase(SystemClock.elapsedRealtime()

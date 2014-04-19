@@ -138,6 +138,11 @@
     <string name="showmap">Show your path</string>
     <string name="findstore">Find Store</string>
     <string name="show_report">Show Report</string>
+    <string name="gps_not_enabled">GPS Disabled</string>
+    <string name="open_location_settings">Setting</string>
+    <string name="Cancel">Cancel</string>
+    <string name="network_not_enabled">Network Disabled</string>
+    
    
 
 </resources>

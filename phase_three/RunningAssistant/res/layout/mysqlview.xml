@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:background="#000000"
+    android:orientation="vertical" >
+    
+     <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+       <TableRow>
+            
+
+            <TextView
+                android:id="@+id/com.group6.runningassistant."
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:textColor="#FFFFFF"
+                android:layout_weight="1"
+                android:text="ID" />
+            
+             <TextView
+                android:id="@+id/textView2"
+                android:textColor="#FFFFFF"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="Date" />
+             
+             <TextView
+                android:id="@+id/textView3"
+                android:layout_width="fill_parent"
+                android:textColor="#FFFFFF"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="Distance" />
+             
+             <TextView
+                android:id="@+id/textView3"
+                android:layout_width="fill_parent"
+                android:textColor="#FFFFFF"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="Calories" />
+             
+             <TextView
+                android:id="@+id/textView4"
+                android:layout_width="fill_parent"
+                android:textColor="#FFFFFF"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="Duration" />
+             
+             
+
+        </TableRow>
+        
+       
+       <TextView
+            android:id="@+id/tvsqlinfo"
+            android:layout_width="fill_parent"
+            android:textColor="#FFFFFF"
+            android:layout_height="wrap_content"
+            android:text="get info"
+            android:scrollbars="vertical"
+            />
+  
+       </TableLayout>
+       
+    
+    
+
+</LinearLayout>
