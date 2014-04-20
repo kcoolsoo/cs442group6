@@ -83,42 +83,14 @@
            android:gravity="center_horizontal"
            android:text="@string/showmap" /> -->
 
-       <ImageButton
-           android:id="@+id/save"
-           android:layout_width="100dp"
-           android:layout_height="100dp"
-           android:layout_alignRight="@+id/chronometer1"
-           android:layout_alignTop="@+id/start"
-           android:layout_marginRight="54dp"
-           android:scaleType="fitXY"
-           android:src="@drawable/save" />
-
-       <ImageButton
-           android:id="@+id/open1"
-           android:layout_width="100dp"
-           android:layout_height="100dp"
-           android:layout_alignLeft="@+id/save"
-           android:layout_alignTop="@+id/pause"
-           android:layout_marginTop="23dp"
-           android:scaleType="fitXY"
-           android:src="@drawable/open" />
-
        <Button
            android:id="@+id/start"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_alignLeft="@+id/chronometer1"
-           android:layout_centerVertical="true"
+           android:layout_below="@+id/chronometer1"
+           android:layout_marginTop="23dp"
            android:background="@drawable/custom_start"
-           android:gravity="center_horizontal" />
-
-       <Button
-           android:id="@+id/pause"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_alignLeft="@+id/start"
-           android:layout_below="@+id/save"
-           android:background="@drawable/custom_pause"
            android:gravity="center_horizontal" />
 
        <Button
@@ -126,16 +98,46 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_alignParentBottom="true"
-           android:layout_alignParentLeft="true"
+           android:layout_alignRight="@+id/pause"
            android:background="@drawable/custom_reset"
            android:gravity="center_horizontal" />
+
+       <Button
+           android:id="@+id/pause"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_below="@+id/start"
+           android:background="@drawable/custom_pause"
+           android:gravity="center_horizontal" />
+
+       <ImageButton
+           android:id="@+id/open1"
+           android:layout_width="100dp"
+           android:layout_height="100dp"
+           android:layout_alignBottom="@+id/pause"
+           android:layout_alignLeft="@+id/save"
+           android:layout_marginBottom="21dp"
+           android:scaleType="fitXY"
+           android:src="@drawable/open" />
+
+       <ImageButton
+           android:id="@+id/save"
+           android:layout_width="100dp"
+           android:layout_height="100dp"
+           android:layout_above="@+id/open1"
+           android:layout_marginLeft="55dp"
+           android:layout_toRightOf="@+id/start"
+           android:scaleType="fitXY"
+           android:src="@drawable/save" />
 
        <Button
            android:id="@+id/quit"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:layout_alignParentRight="true"
-           android:layout_below="@+id/open1"
+           android:layout_alignBaseline="@+id/reset"
+           android:layout_alignBottom="@+id/reset"
+           android:layout_alignRight="@+id/chronometer1"
            android:background="@drawable/custom_quit"
            android:gravity="center_horizontal" />
 

@@ -112,18 +112,18 @@
     <string name="start">Start</string>
     <string name="stop">Stop</string>
     <string name="initialvalue">0   Steps</string>
-    <string name="initspeed">0.0   m/s</string>
+    <string name="initspeed">0.0   Mph</string>
     <string name="initdist">0.0   m</string>
     <string name="title_activity_distance_speed">DistanceSpeedActivity</string>
     <string name="distance">Distance</string>
     <string name="speed">Speed</string>
     <string name="time"> Time</string>
     <string name="calories">Calories</string>
-    <string name="avespeed">0.0   m/s(Avg)</string>
+    <string name="avespeed">0.0   Mph(Avg)</string>
     <string name="initcalorie">0.000   Cal</string>
     <string name="initclock">00:00:00</string>
-    <string name="avespeedunit">m/s(Avg)</string>
-    <string name="speedunit">m/s</string>
+    <string name="avespeedunit">Mph(Avg)</string>
+    <string name="speedunit">Mph</string>
     <string name="stepunit">Steps</string>
     <string name="distanceunit">m</string>
     <string name="calorieunit">Cal</string>
@@ -138,12 +138,6 @@
     <string name="showmap">Show your path</string>
     <string name="findstore">Find Store</string>
     <string name="show_report">Show Report</string>
-    <string name="gps_not_enabled">GPS Disabled</string>
-    <string name="open_location_settings">Setting</string>
-    <string name="Cancel">Cancel</string>
-    <string name="network_not_enabled">Network Disabled</string>
-    <string name="feedback">Feedback</string>
-    
    
 
 </resources>

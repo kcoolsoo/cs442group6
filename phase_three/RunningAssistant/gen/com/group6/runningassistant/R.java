@@ -264,39 +264,35 @@ containing a value of this type.
         public static final int start1=0x7f020033;
     }
     public static final class id {
-        public static final int action_settings=0x7f05002b;
+        public static final int action_settings=0x7f050028;
         public static final int avespeedtext=0x7f050007;
-        public static final int btnclear=0x7f050026;
-        public static final int btnconfirm=0x7f05002a;
+        public static final int btnclear=0x7f050027;
+        public static final int btnconfirm=0x7f050025;
         public static final int calorie=0x7f050009;
         public static final int calorie_graph=0x7f050015;
         public static final int chronometer1=0x7f05000a;
         public static final int com_group6_runningassistant_=0x7f050017;
         public static final int distance=0x7f050008;
         public static final int distance_graph=0x7f050016;
-        public static final int feedback=0x7f05002f;
-        public static final int findstore=0x7f05002d;
-        public static final int heigh=0x7f050028;
+        public static final int findstore=0x7f05002a;
         public static final int hybrid=0x7f050004;
-        public static final int imageButton_BMI=0x7f050025;
+        public static final int imageButton_BMI=0x7f050026;
         public static final int imageButton_cancel=0x7f050013;
         public static final int listView_stats=0x7f05001d;
-        public static final int low=0x7f050029;
         public static final int map=0x7f050011;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
-        public static final int open1=0x7f05000d;
-        public static final int pause=0x7f05000e;
+        public static final int open1=0x7f05000e;
+        public static final int pause=0x7f05000d;
         public static final int quit=0x7f050010;
-        public static final int radioGroup1=0x7f050027;
-        public static final int reset=0x7f05000f;
+        public static final int reset=0x7f05000c;
         public static final int satellite=0x7f050002;
-        public static final int save=0x7f05000b;
-        public static final int show_report=0x7f05002c;
-        public static final int showpath=0x7f05002e;
+        public static final int save=0x7f05000f;
+        public static final int show_report=0x7f050029;
+        public static final int showpath=0x7f05002b;
         public static final int speed_graph=0x7f05001c;
         public static final int speedtext=0x7f050006;
-        public static final int start=0x7f05000c;
+        public static final int start=0x7f05000b;
         public static final int step_value=0x7f050005;
         public static final int terrain=0x7f050003;
         public static final int textView1=0x7f050012;
@@ -333,7 +329,6 @@ containing a value of this type.
         public static final int map=0x7f0a0001;
     }
     public static final class string {
-        public static final int Cancel=0x7f0600a4;
         public static final int action_settings=0x7f06001c;
         public static final int activity_settings=0x7f060040;
         public static final int age=0x7f060098;
@@ -456,9 +451,7 @@ containing a value of this type.
         public static final int exercise_type_walking=0x7f060063;
         public static final int extra_high=0x7f060045;
         public static final int extra_low=0x7f06004d;
-        public static final int feedback=0x7f0600a6;
         public static final int findstore=0x7f0600a0;
-        public static final int gps_not_enabled=0x7f0600a2;
         public static final int group1=0x7f060025;
         public static final int height=0x7f060099;
         public static final int heightunit=0x7f06009c;
@@ -497,9 +490,7 @@ containing a value of this type.
         public static final int miles=0x7f060030;
         public static final int miles_per_hour=0x7f060034;
         public static final int mph=0x7f060031;
-        public static final int network_not_enabled=0x7f0600a5;
         public static final int notification_subtitle=0x7f06002b;
-        public static final int open_location_settings=0x7f0600a3;
         public static final int operation_level_setting=0x7f06004e;
         public static final int operation_level_setting_details=0x7f06004f;
         public static final int operation_level_setting_title=0x7f060050;

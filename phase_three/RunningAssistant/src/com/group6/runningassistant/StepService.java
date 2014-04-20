@@ -88,7 +88,6 @@ public class StepService extends Service {
         
         // Start detecting
         mStepDetector = new StepDetector();
-        Log.i("Sens",mSettings.getString("sensitivity", "33.75"));
         mStepDetector.setSensitivity(Float.valueOf(mSettings.getString("sensitivity", "33.75")));
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         registerDetector();
@@ -200,7 +199,7 @@ public class StepService extends Service {
         
         if (mStepDetector != null) { 
             mStepDetector.setSensitivity(
-                    Float.valueOf(mSettings.getString("sensitivity", "33.5"))
+                    Float.valueOf(mSettings.getString("sensitivity", "10"))
             );
         }
         
