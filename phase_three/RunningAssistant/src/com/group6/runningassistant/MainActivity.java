@@ -69,7 +69,7 @@ public class MainActivity extends Activity {
     private TextView avespeedtext;
     long timeWhenStopped = 0;
     long t;
-
+    private SharedPreferences pref;
     private int PREF_MODE = 0;
     private static final String PREF_NAME_USERPROFILE = "UserProfile";
     private static final String KEY_AGE = "age";
@@ -79,7 +79,7 @@ public class MainActivity extends Activity {
     private static ArrayList<String> speedtime = new ArrayList<String>();
     private static ArrayList<String> distancetime = new ArrayList<String>();
     private static ArrayList<String> caltime = new ArrayList<String>();
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,7 +92,7 @@ public class MainActivity extends Activity {
         mBodyWeight = -1.0f;
     
         Context context = getApplicationContext();
-        SharedPreferences pref = context.getSharedPreferences(
+        pref = context.getSharedPreferences(
                 PREF_NAME_USERPROFILE, PREF_MODE);
         if (pref.getFloat(KEY_WEIGHT, mBodyWeight) > 0f) {
             mBodyWeight = pref.getFloat(KEY_WEIGHT, mBodyWeight);
@@ -154,6 +154,10 @@ public class MainActivity extends Activity {
 
         start.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
+                mBodyWeight = -1.0f;
+                if (pref.getFloat(KEY_WEIGHT, mBodyWeight) > 0f) {
+                    mBodyWeight = pref.getFloat(KEY_WEIGHT, mBodyWeight);
+                }
                 if (mBodyWeight < 0f) {
                     startActivity(new Intent(MainActivity.this,
                             UserProfile.class));
@@ -393,7 +397,7 @@ public class MainActivity extends Activity {
         if (mService != null) {
             mService.resetValues();
         } else {
-            mStepValueView.setText("0");
+            mStepValueView.setText("0 "+getResources().getString(R.string.tell_steps_setting));
             SharedPreferences state = getSharedPreferences("state", 0);
             SharedPreferences.Editor stateEditor = state.edit();
             stateEditor.putInt("steps", 0);
