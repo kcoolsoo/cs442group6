@@ -75,67 +75,68 @@
         android:text="@string/initclock"
         android:textColor="@color/white"
         android:textSize="@dimen/value" />
-    <Button
-        android:id="@+id/start"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-      	android:layout_below="@id/chronometer1"
-      	android:gravity="center_horizontal" 
-        android:text="@string/start"
-          />
-     <Button
-        android:id="@+id/pause"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-      	android:layout_below="@id/start"
-      	android:gravity="center_horizontal" 
-        android:text="@string/pause"
-          />
-    
-      <Button
-        android:id="@+id/reset"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-      	android:layout_below="@id/pause"
-      	android:gravity="center_horizontal" 
-        android:text="@string/reset"
-          />
      <!--   <Button
            android:id="@+id/showmap"
-           android:layout_width="fill_parent"
+           android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_below="@id/reset"
            android:gravity="center_horizontal"
            android:text="@string/showmap" /> -->
-     
-       <Button
-           android:id="@+id/quit"
-           android:layout_width="fill_parent"
-           android:layout_height="wrap_content"
-           android:layout_below="@id/reset"
-           android:gravity="center_horizontal"
-           android:text="@string/quit" />
 
        <ImageButton
            android:id="@+id/save"
            android:layout_width="100dp"
            android:layout_height="100dp"
-           android:layout_below="@+id/quit"
-           android:layout_centerHorizontal="true"
-           android:src="@drawable/save" 
-           android:scaleType="fitXY"/>
+           android:layout_alignRight="@+id/chronometer1"
+           android:layout_alignTop="@+id/start"
+           android:layout_marginRight="54dp"
+           android:scaleType="fitXY"
+           android:src="@drawable/save" />
 
        <ImageButton
-           android:id="@+id/open"
+           android:id="@+id/open1"
            android:layout_width="100dp"
            android:layout_height="100dp"
-           android:layout_alignBottom="@+id/save"
+           android:layout_alignLeft="@+id/save"
+           android:layout_alignTop="@+id/pause"
+           android:layout_marginTop="23dp"
+           android:scaleType="fitXY"
+           android:src="@drawable/open" />
+
+       <Button
+           android:id="@+id/start"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignLeft="@+id/chronometer1"
+           android:layout_centerVertical="true"
+           android:background="@drawable/custom_start"
+           android:gravity="center_horizontal" />
+
+       <Button
+           android:id="@+id/pause"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignLeft="@+id/start"
+           android:layout_below="@+id/save"
+           android:background="@drawable/custom_pause"
+           android:gravity="center_horizontal" />
+
+       <Button
+           android:id="@+id/reset"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentBottom="true"
+           android:layout_alignParentLeft="true"
+           android:background="@drawable/custom_reset"
+           android:gravity="center_horizontal" />
+
+       <Button
+           android:id="@+id/quit"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
            android:layout_alignParentRight="true"
-           android:layout_alignTop="@+id/save"
-           android:layout_marginLeft="28dp"
-           android:layout_toRightOf="@+id/save"
-           android:src="@drawable/open" 
-           
-           android:scaleType="fitXY"/>
+           android:layout_below="@+id/open1"
+           android:background="@drawable/custom_quit"
+           android:gravity="center_horizontal" />
 
 </RelativeLayout>

@@ -5,6 +5,8 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+
+
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -95,6 +97,10 @@ public class MainActivity extends Activity {
         if (pref.getFloat(KEY_WEIGHT, mBodyWeight) > 0f) {
             mBodyWeight = pref.getFloat(KEY_WEIGHT, mBodyWeight);
         }
+        else{
+        	startActivity(new Intent(MainActivity.this,
+                    UserProfile.class));
+        }
 
         setContentView(R.layout.activity_main);
         speedtext = (TextView) findViewById(R.id.speedtext);
@@ -106,7 +112,7 @@ public class MainActivity extends Activity {
         Button reset = (Button) findViewById(R.id.reset);
         Button quit = (Button) findViewById(R.id.quit);
         ImageButton save1 =(ImageButton) findViewById(R.id.save);
-        ImageButton open =(ImageButton) findViewById(R.id.open);
+        ImageButton open =(ImageButton) findViewById(R.id.open1);
      
         df = new DecimalFormat();
         dfonedc = new DecimalFormat();
@@ -592,6 +598,22 @@ public class MainActivity extends Activity {
             	 	Toast.makeText(MainActivity.this,"No Data To Display",Toast.LENGTH_LONG).show();
                 else
                 	startActivity(passIntent1);
+            return true;
+        
+        
+        case R.id.feedback:
+        	Intent i = new Intent(Intent.ACTION_SEND);
+    		i.setType("message/rfc822");
+    		i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"nickhil.revu@gmail.com"});
+    		i.putExtra(Intent.EXTRA_SUBJECT, "Running Assist Feedback");
+    		i.putExtra(Intent.EXTRA_TEXT   , "body of email");
+    		try {
+    		    startActivity(Intent.createChooser(i, "Send mail..."));
+    		    
+    		} catch (android.content.ActivityNotFoundException ex) {
+    		    Toast.makeText(MainActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+    		}
+        	
         }
         return false;
     }

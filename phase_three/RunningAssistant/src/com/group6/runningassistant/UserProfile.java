@@ -2,6 +2,7 @@ package com.group6.runningassistant;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
@@ -17,7 +18,7 @@ import android.widget.Toast;
 import android.content.SharedPreferences;
 
 public class UserProfile extends Activity {
-
+	private int flag=0;
 	private EditText mEditAge, mEditWeight, mEditHeight, mEditBmi;
 	private Button mBtnConfirm, mBtnCancel, mBtnClear;
 	private RadioButton mHeigh,mLow;
@@ -92,11 +93,29 @@ public class UserProfile extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				mAge = Integer.parseInt(mEditAge.getText().toString());
+				try{
+					mAge = Integer.parseInt(mEditAge.getText().toString());
+				
 				mWeight = Float.parseFloat(mEditWeight.getText().toString());
 				mHeight = Float.parseFloat(mEditHeight.getText().toString());
-				saveUserProfile(mAge, mWeight, mHeight);
-				finish();
+				if(mAge>0 && mWeight>0.0 && mHeight>0.0)
+				{
+					saveUserProfile(mAge, mWeight, mHeight);
+					Toast.makeText(UserProfile.this, "Saved Settings", Toast.LENGTH_LONG).show();
+					flag=1;
+				    finish();
+				}else
+				
+					{
+						Toast.makeText(UserProfile.this, "Please!! Fill Appropriate Date", Toast.LENGTH_LONG).show();
+					}
+				
+				
+				}catch(NumberFormatException e)
+				{
+					Toast.makeText(UserProfile.this, "Please!! Fill Appropriate Date", Toast.LENGTH_LONG).show();
+				}
+				
 			}
 		});
 
@@ -123,9 +142,11 @@ public class UserProfile extends Activity {
 		Context context = getApplicationContext();
 		SharedPreferences pref = context.getSharedPreferences(PREF_NAME,
 				PREF_MODE);
+		
+		
 		if (pref.getInt(KEY_AGE, mAge) >= 0
-				&& pref.getFloat(KEY_WEIGHT, mWeight) >= 0
-				&& pref.getFloat(KEY_HEIGHT, mHeight) >= 0) {
+				&& pref.getFloat(KEY_WEIGHT, mWeight) >= 0.0
+				&& pref.getFloat(KEY_HEIGHT, mHeight) >= 0.0) {
 			mAge = pref.getInt(KEY_AGE, mAge);
 			mWeight = pref.getFloat(KEY_WEIGHT, mWeight);
 			mHeight = pref.getFloat(KEY_HEIGHT, mHeight);
@@ -134,6 +155,8 @@ public class UserProfile extends Activity {
 			mEditWeight.setText(Float.toString(mWeight));
 			mEditHeight.setText(Float.toString(mHeight));
 		}
+		
+		
 		
 	}
 

@@ -13,7 +13,7 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public class Statistics extends Activity {
 
-	String [] menu = {"Distance Graph","Speed Graph","Calories Graph","XYZ Graph"};
+	String [] menu = {"Distance Graph","Speed Graph","Calories Graph"};
 	ListView lvStats;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
