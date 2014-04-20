@@ -121,16 +121,19 @@ public class UserProfile extends Activity {
 
 		mBtnBMI.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-
-				mWeight = Float.parseFloat(mEditWeight.getText().toString());
-				mHeight = Float.parseFloat(mEditHeight.getText().toString());
-				mBmi = (mWeight * 703) / (mHeight * mHeight);
-				setContentView(R.layout.bmi_chart);
-				mEditBmi = (EditText) findViewById(R.id.value_bmi);
-				mEditBmi.setText(" " + mBmi);
-				Toast.makeText(UserProfile.this, " " + mBmi, Toast.LENGTH_LONG)
-						.show();
-
+			    if (!mEditWeight.getText().toString().trim().equals("") || !mEditHeight.getText().toString().trim().equals("")){
+    				mWeight = Float.parseFloat(mEditWeight.getText().toString());
+    				mHeight = Float.parseFloat(mEditHeight.getText().toString());
+    				mBmi = (mWeight * 703) / (mHeight * mHeight);
+    				setContentView(R.layout.bmi_chart);
+    				mEditBmi = (EditText) findViewById(R.id.value_bmi);
+    				mEditBmi.setText(" " + mBmi);
+    				Toast.makeText(UserProfile.this, " " + mBmi, Toast.LENGTH_LONG)
+    						.show();
+			    }else{
+			        Toast.makeText(UserProfile.this, "Please enther some information before " , Toast.LENGTH_SHORT)
+                    .show();
+			    }
 			}
 		});
 	}
