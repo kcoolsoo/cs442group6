@@ -9,12 +9,10 @@
     tools:context=".MainActivity"
     android:id="@+id/layout1">
 
-    <com.group6.runningassistant.MYGIFView
-        android:id="@+id/mYGIFView1"
+    <WebView
+        android:id="@+id/webView1"
         android:layout_width="wrap_content"
+        android:layout_gravity="center"
         android:layout_height="wrap_content" />
-"
-
-    
 
 </LinearLayout>

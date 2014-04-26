@@ -1,11 +1,10 @@
 package com.group6.runningassistant;
 
 
+import java.sql.Time;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-
-
 
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
@@ -25,6 +24,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.TextToSpeech.OnInitListener;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,7 +37,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnInitListener  {
 
     private static final String TAG = "Running Assistant";
     private SharedPreferences mSettings;
@@ -79,10 +80,15 @@ public class MainActivity extends Activity {
     private static ArrayList<String> speedtime = new ArrayList<String>();
     private static ArrayList<String> distancetime = new ArrayList<String>();
     private static ArrayList<String> caltime = new ArrayList<String>();
-
+    
+    private TextToSpeech myTTS;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+     
+        
         Log.i(TAG, "[ACTIVITY] onCreate");
         currentspeed = 0;
         mStepValue = 0;
@@ -90,12 +96,28 @@ public class MainActivity extends Activity {
         mDistance = 0;
         mUtils = Utils.getInstance();
         mBodyWeight = -1.0f;
-    
+        
+        
+     // Text to Speech
+        Intent checkTTSIntent = new Intent();
+	    checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+	    startActivityForResult(checkTTSIntent, 0);
+	//end of TTS 
+       
+           
         Context context = getApplicationContext();
         SharedPreferences pref = context.getSharedPreferences(
                 PREF_NAME_USERPROFILE, PREF_MODE);
         if (pref.getFloat(KEY_WEIGHT, mBodyWeight) > 0f) {
             mBodyWeight = pref.getFloat(KEY_WEIGHT, mBodyWeight);
+             Handler h = new Handler();
+            h.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    // run your code here
+                    welcome();
+                }
+            }, 500);
         }
         else{
         	startActivity(new Intent(MainActivity.this,
@@ -103,6 +125,8 @@ public class MainActivity extends Activity {
         }
 
         setContentView(R.layout.activity_main);
+       
+        
         speedtext = (TextView) findViewById(R.id.speedtext);
         distancetext = (TextView) findViewById(R.id.distance);
         calorietext = (TextView) findViewById(R.id.calorie);
@@ -166,7 +190,11 @@ public class MainActivity extends Activity {
                                 + timeWhenStopped);
                         chronometer.start();
                     }
+                    myTTS.speak("There's nothing to think about. Just run", TextToSpeech.QUEUE_FLUSH, null);
                 }
+                
+ 
+               
             }
         });
         pause.setOnClickListener(new OnClickListener() {
@@ -194,7 +222,19 @@ public class MainActivity extends Activity {
                 }
                 mQuitting = true;
                 resetValues(true);
-                finish();
+                
+                myTTS.speak("you ran for"+mDistance+"miles. Good Bye.", TextToSpeech.QUEUE_FLUSH, null);
+               // myTTS.speak(" ", TextToSpeech.QUEUE_FLUSH, null);
+                Handler h = new Handler();
+                h.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        // run your code here
+                    	finish();
+                    }
+                }, 2000);
+
+                
 
             }
         });
@@ -228,8 +268,51 @@ public class MainActivity extends Activity {
                 }
             }
         });
-    
+      
+     
+       
+   
+	    
+	   
     }
+ // tts
+    private void welcome() {
+		// TODO Auto-generated method stub
+	  int hours = new Time(System.currentTimeMillis()).getHours();
+     	//Toast.makeText(MainActivity.this, ""+hours, Toast.LENGTH_LONG).show();
+       if(hours<12)
+       {
+       	myTTS.speak("Good Morning.", TextToSpeech.QUEUE_FLUSH, null);
+       }
+       else
+       {
+       	myTTS.speak("Good Evening.", TextToSpeech.QUEUE_FLUSH, null);
+       }
+	}
+    
+	//start TTS
+    protected void onActivityResult(int requestCode, int resultCode, Intent myIntent) {
+    	
+    			if(requestCode==0)
+    			{
+    				if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
+    	                //the user has the necessary data - create the TTS
+    	            myTTS = new TextToSpeech(this, this);
+    	            }
+    	            else {
+    	                    //no data - install it now
+    	                Intent installTTSIntent = new Intent();
+    	                installTTSIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+    	                startActivity(installTTSIntent);
+    	            }
+    				
+    			}
+    			
+    }//stop TTS 
+    public void onInit(int initStatus)
+	{
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -243,6 +326,7 @@ public class MainActivity extends Activity {
         Log.i(TAG, "[ACTIVITY] onStart");
         super.onStart();
         //chronometer.start();//may be wrong here
+      
     }
 
     @Override
@@ -257,7 +341,7 @@ public class MainActivity extends Activity {
         if (pref.getFloat(KEY_WEIGHT, mBodyWeight) > 0f) {
             mBodyWeight = pref.getFloat(KEY_WEIGHT, mBodyWeight);
         }
-        
+         
         mSettings = PreferenceManager.getDefaultSharedPreferences(this);
         mPedometerSettings = new PedometerSettings(mSettings);
 
@@ -273,6 +357,7 @@ public class MainActivity extends Activity {
 
         mStepValueView = (TextView) findViewById(R.id.step_value);
         mIsMetric = mPedometerSettings.isMetric();
+        
     }
 
     @Override
