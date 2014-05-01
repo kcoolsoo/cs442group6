@@ -120,14 +120,17 @@ public  class MapActivity extends Activity implements LocationListener{
                onLocationChanged(location);
                
            }
-           LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-           mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-           mMap.animateCamera(CameraUpdateFactory.zoomTo(15)); 
-          // locationManager.requestLocationUpdates(provider, 1000, 0, this);
+           if(location != null){
+               LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+               mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+               mMap.animateCamera(CameraUpdateFactory.zoomTo(15)); 
+           }
+           // locationManager.requestLocationUpdates(provider, 1000, 0, this);
            
            if(getIntent().getBooleanExtra("Showmap", false)){
                showpath();
            }else{
+               Log.i("Show store",locallat+" , "+locallong);
                String latString=locallat+"";
                String longString=locallong+"";
                // TODO Auto-generated method stub
