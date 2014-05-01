@@ -9,15 +9,12 @@ import android.graphics.Movie;
 import android.view.View;
 
 public class MYGIFView extends View {
-	 private Movie movie,movie1;
+	Movie movie,movie1;
 	InputStream is=null,is1=null;
 	long moviestart;
-	
-	
-	public MYGIFView(Context context,InputStream stream) {
+	public MYGIFView(Context context) {
 	super(context);
-	is =stream;
-	//is=context.getResources().openRawResource(run.gif);
+	is=context.getResources().openRawResource(R.drawable.run);
 	movie=Movie.decodeStream(is);
 	}
 	@Override
@@ -39,4 +36,3 @@ public class MYGIFView extends View {
 
 	}
 }
-	
