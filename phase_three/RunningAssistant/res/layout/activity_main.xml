@@ -7,136 +7,148 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".StepCounterActivity" >
-    
-     <TextView
-        android:id="@+id/step_value"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:background="@color/display_background"
-        android:textColor="@color/white"
-        android:gravity="center_horizontal"
-        android:textSize="@dimen/value" 
-        android:text="@string/initialvalue"/>  
-   	  <TextView
-           android:id="@+id/speedtext"
-           android:layout_width="fill_parent"
-           android:layout_height="wrap_content"
-           android:layout_below="@+id/step_value"
-           android:layout_centerHorizontal="true"
-           android:background="@color/display_background"
-           android:gravity="center_horizontal"
-           android:text="@string/initspeed"
-           android:textColor="@color/white"
-           android:textSize="@dimen/value" />
-   	   <TextView
-           android:id="@+id/avespeedtext"
-           android:layout_width="fill_parent"
-           android:layout_height="wrap_content"
-           android:layout_below="@+id/speedtext"
-           android:layout_centerHorizontal="true"
-           android:background="@color/display_background"
-           android:gravity="center_horizontal"
-           android:text="@string/avespeed"
-           android:textColor="@color/white"
-           android:textSize="@dimen/value" />
 
-       <TextView
-           android:id="@+id/distance"
-           android:layout_width="fill_parent"
-           android:layout_height="wrap_content"
-           android:layout_below="@+id/avespeedtext"
-           android:layout_centerHorizontal="true"
-           android:background="@color/display_background"
-           android:gravity="center_horizontal"
-           android:text="@string/initdist"
-           android:textColor="@color/white"
-           android:textSize="@dimen/value" />
-        <TextView
-           android:id="@+id/calorie"
-           android:layout_width="fill_parent"
-           android:layout_height="wrap_content"
-           android:layout_below="@+id/distance"
-           android:layout_centerHorizontal="true"
-           android:background="@color/display_background"
-           android:gravity="center_horizontal"
-           android:text="@string/initcalorie"
-           android:textColor="@color/white"
-           android:textSize="@dimen/value" />
-      <Chronometer
-        android:id="@+id/chronometer1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/calorie"
-        android:layout_centerHorizontal="true"
-        android:background="@color/display_background"
-        android:gravity="center_horizontal"
-        android:text="@string/initclock"
-        android:textColor="@color/white"
-        android:textSize="@dimen/value" />
-     <!--   <Button
+    <!--
+            <Button
            android:id="@+id/showmap"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_below="@id/reset"
            android:gravity="center_horizontal"
-           android:text="@string/showmap" /> -->
+           android:text="@string/showmap" />
+    -->
 
-       <ImageButton
-           android:id="@+id/save"
-           android:layout_width="100dp"
-           android:layout_height="100dp"
-           android:layout_alignRight="@+id/chronometer1"
-           android:layout_alignTop="@+id/start"
-           android:layout_marginRight="54dp"
-           android:scaleType="fitXY"
-           android:src="@drawable/save" />
+    <LinearLayout
+        android:id="@+id/linearLayout_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/linear_background"
+        android:orientation="vertical" >
 
-       <ImageButton
-           android:id="@+id/open1"
-           android:layout_width="100dp"
-           android:layout_height="100dp"
-           android:layout_alignLeft="@+id/save"
-           android:layout_alignTop="@+id/pause"
-           android:layout_marginTop="23dp"
-           android:scaleType="fitXY"
-           android:src="@drawable/open" />
+        <TextView
+            android:id="@+id/faketext1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
 
-       <Button
-           android:id="@+id/start"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_alignLeft="@+id/chronometer1"
-           android:layout_centerVertical="true"
-           android:background="@drawable/custom_start"
-           android:gravity="center_horizontal" />
+        <TextView
+            android:id="@+id/step_value"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/initialvalue"
+            android:textColor="@color/white"
+            android:textSize="@dimen/value" />
 
-       <Button
-           android:id="@+id/pause"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_alignLeft="@+id/start"
-           android:layout_below="@+id/save"
-           android:background="@drawable/custom_pause"
-           android:gravity="center_horizontal" />
+        <TextView
+            android:id="@+id/speedtext"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/initspeed"
+            android:textColor="@color/white"
+            android:textSize="@dimen/value" />
 
-       <Button
-           android:id="@+id/reset"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_alignParentBottom="true"
-           android:layout_alignParentLeft="true"
-           android:background="@drawable/custom_reset"
-           android:gravity="center_horizontal" />
+        <TextView
+            android:id="@+id/avespeedtext"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/avespeed"
+            android:textColor="@color/white"
+            android:textSize="@dimen/value" />
 
-       <Button
-           android:id="@+id/quit"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_alignParentRight="true"
-           android:layout_below="@+id/open1"
-           android:background="@drawable/custom_quit"
-           android:gravity="center_horizontal" />
+        <TextView
+            android:id="@+id/distance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/initdist"
+            android:textColor="@color/white"
+            android:textSize="@dimen/value" />
+
+        <TextView
+            android:id="@+id/calorie"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/initcalorie"
+            android:textColor="@color/white"
+            android:textSize="@dimen/value" />
+
+        <Chronometer
+            android:id="@+id/chronometer1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/initclock"
+            android:textColor="@color/white"
+            android:textSize="@dimen/value" />
+
+        <TextView
+            android:id="@+id/facketext2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/quit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/reset"
+        android:layout_alignTop="@+id/open"
+        android:background="@xml/custom_quit"
+        android:gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/pause"
+        android:layout_alignBottom="@+id/pause"
+        android:layout_alignLeft="@+id/linearLayout_main"
+        android:background="@xml/custom_start"
+        android:gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/pause"
+        android:layout_alignBottom="@+id/pause"
+        android:layout_alignRight="@+id/linearLayout_main"
+        android:background="@xml/custom_reset"
+        android:gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/open"
+        android:layout_alignBottom="@+id/open"
+        android:layout_alignLeft="@+id/start"
+        android:background="@xml/custom_save"
+        android:src="@drawable/save" />
+
+    <Button
+        android:id="@+id/open"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@xml/custom_open" />
+
+    <Button
+        android:id="@+id/pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/open"
+        android:layout_alignLeft="@+id/open"
+        android:layout_marginBottom="16dp"
+        android:background="@xml/custom_pause"
+        android:gravity="center_horizontal" />
 
 </RelativeLayout>

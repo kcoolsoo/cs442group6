@@ -106,15 +106,15 @@
         android:layout_above="@+id/tvage"
         android:layout_alignRight="@+id/tvuserprofile"
         android:layout_alignTop="@+id/tvuserprofile"
-        android:layout_toRightOf="@+id/imageButton_BMI"
         android:text="@string/clear" />
 
     <Button
         android:id="@+id/imageButton_cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvweight"
+        android:layout_alignLeft="@+id/radioGroup1"
         android:layout_below="@+id/radioGroup1"
+        android:layout_toLeftOf="@+id/btnconfirm"
         android:background="@drawable/cancel" />
 
     <RadioGroup
@@ -146,6 +146,6 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/imageButton_cancel"
         android:layout_alignRight="@+id/radioGroup1"
-        android:background="@drawable/custom" />
+        android:background="@xml/custom" />
 
 </RelativeLayout>

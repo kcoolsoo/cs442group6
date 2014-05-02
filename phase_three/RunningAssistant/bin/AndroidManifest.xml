@@ -32,7 +32,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/ic_launcher2"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
@@ -101,7 +101,7 @@
         
          <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyCnNAtTB5btMD0OrDuHL4Fx_jmF8PemLrE"/>
+            android:value="AIzaSyAWudbZpF6UBPXWtKRURJHfLPR44YwLcKw"/>
         <meta-data
 		    android:name="com.google.android.gms.version"
 		    android:value="@integer/google_play_services_version" />

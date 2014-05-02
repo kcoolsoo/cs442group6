@@ -135,8 +135,8 @@ public class MainActivity extends Activity implements OnInitListener  {
         Button pause = (Button) findViewById(R.id.pause);
         Button reset = (Button) findViewById(R.id.reset);
         Button quit = (Button) findViewById(R.id.quit);
-        ImageButton save1 =(ImageButton) findViewById(R.id.save);
-        ImageButton open =(ImageButton) findViewById(R.id.open1);
+        Button save1 =(Button) findViewById(R.id.save);
+        Button open = (Button) findViewById(R.id.open);
      
         df = new DecimalFormat();
         dfonedc = new DecimalFormat();
@@ -278,16 +278,17 @@ public class MainActivity extends Activity implements OnInitListener  {
  // tts
     private void welcome() {
 		// TODO Auto-generated method stub
-	  int hours = new Time(System.currentTimeMillis()).getHours();
-     	//Toast.makeText(MainActivity.this, ""+hours, Toast.LENGTH_LONG).show();
-       if(hours<12)
-       {
-       	myTTS.speak("Good Morning.", TextToSpeech.QUEUE_FLUSH, null);
-       }
-       else
-       {
-       	myTTS.speak("Good Evening.", TextToSpeech.QUEUE_FLUSH, null);
-       }
+//	  int hours = new Time(System.currentTimeMillis()).getHours();
+//     	//Toast.makeText(MainActivity.this, ""+hours, Toast.LENGTH_LONG).show();
+//       if(hours<12)
+//       {
+//       	myTTS.speak("Good Morning.", TextToSpeech.QUEUE_FLUSH, null);
+//       }
+//       else
+//       {
+//       	myTTS.speak("Good Evening.", TextToSpeech.QUEUE_FLUSH, null);
+//       }
+       //myTTS.speak("Welcome to the running assistant. Enjoy.", TextToSpeech.QUEUE_FLUSH, null);
 	}
     
 	//start TTS
