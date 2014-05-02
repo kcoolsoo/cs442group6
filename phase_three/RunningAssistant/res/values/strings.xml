@@ -147,7 +147,7 @@
     <string name="confirm">Confirm</string>
     <string name="lowsensitivity">Low Sensitivity</string>
     <string name="highsensitivity">High Sensitivity</string>
-    
+    <string name="launch_screen_desc">Launch Screen</string>
    
 
 </resources>

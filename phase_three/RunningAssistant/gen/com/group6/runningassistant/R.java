@@ -249,20 +249,22 @@ containing a value of this type.
         public static final int ic_plusone_small_off_client=0x7f020024;
         public static final int ic_plusone_standard_off_client=0x7f020025;
         public static final int ic_plusone_tall_off_client=0x7f020026;
-        public static final int linear_background=0x7f020027;
-        public static final int open=0x7f020028;
-        public static final int open1=0x7f020029;
-        public static final int pause=0x7f02002a;
-        public static final int pause1=0x7f02002b;
-        public static final int reset=0x7f02002c;
-        public static final int reset1=0x7f02002d;
-        public static final int run=0x7f02002e;
-        public static final int run1=0x7f02002f;
-        public static final int save=0x7f020030;
-        public static final int save1=0x7f020031;
-        public static final int start=0x7f020032;
-        public static final int start1=0x7f020033;
-        public static final int white_button=0x7f020034;
+        public static final int launcher_screen=0x7f020027;
+        public static final int launcher_screen2=0x7f020028;
+        public static final int linear_background=0x7f020029;
+        public static final int open=0x7f02002a;
+        public static final int open1=0x7f02002b;
+        public static final int pause=0x7f02002c;
+        public static final int pause1=0x7f02002d;
+        public static final int reset=0x7f02002e;
+        public static final int reset1=0x7f02002f;
+        public static final int run=0x7f020030;
+        public static final int run1=0x7f020031;
+        public static final int save=0x7f020032;
+        public static final int save1=0x7f020033;
+        public static final int start=0x7f020034;
+        public static final int start1=0x7f020035;
+        public static final int white_button=0x7f020036;
     }
     public static final class id {
         public static final int action_settings=0x7f06002f;
@@ -284,6 +286,7 @@ containing a value of this type.
         public static final int gridLayout_userprofile=0x7f060028;
         public static final int heigh=0x7f06002e;
         public static final int hybrid=0x7f060004;
+        public static final int imageView_launch=0x7f06001f;
         public static final int layout1=0x7f06001e;
         public static final int linearLayout_main=0x7f060005;
         public static final int listView_stats=0x7f060020;
@@ -307,16 +310,15 @@ containing a value of this type.
         public static final int terrain=0x7f060003;
         public static final int textView3=0x7f06001a;
         public static final int textView4=0x7f06001b;
-        public static final int tvage=0x7f060021;
-        public static final int tvheight=0x7f060023;
+        public static final int tvage=0x7f060023;
+        public static final int tvheight=0x7f060022;
         public static final int tvsqlinfo=0x7f06001c;
-        public static final int tvuserprofile=0x7f060022;
+        public static final int tvuserprofile=0x7f060021;
         public static final int tvweight=0x7f060024;
         public static final int value_age=0x7f060025;
         public static final int value_bmi=0x7f060016;
         public static final int value_height=0x7f060026;
         public static final int value_weight=0x7f060027;
-        public static final int webView1=0x7f06001f;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f080000;
@@ -491,6 +493,7 @@ containing a value of this type.
         public static final int kilograms=0x7f070038;
         public static final int kilometers=0x7f07002f;
         public static final int kilometers_per_hour=0x7f070033;
+        public static final int launch_screen_desc=0x7f0700ab;
         /**  Location client code resources (prefix with location_client) 
          */
         public static final int location_client_powered_by_google=0x7f07001a;
