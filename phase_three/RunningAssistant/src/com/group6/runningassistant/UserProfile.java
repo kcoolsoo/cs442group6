@@ -61,10 +61,10 @@ public class UserProfile extends Activity {
 			mEditHeight.setText(Float.toString(mHeight));
 		}
 
-		mBtnClear = (Button) findViewById(R.id.btnclear);
-		mBtnCancel = (Button) findViewById(R.id.imageButton_cancel);
-		mBtnConfirm = (Button) findViewById(R.id.btnconfirm);
-		mBtnBMI = (Button) findViewById(R.id.imageButton_BMI);
+		mBtnClear = (Button) findViewById(R.id.btn_clear);
+		mBtnCancel = (Button) findViewById(R.id.btn_cancel);
+		mBtnConfirm = (Button) findViewById(R.id.btn_confirm);
+		mBtnBMI = (Button) findViewById(R.id.btn_bmi);
 		mHeigh = (RadioButton) findViewById(R.id.heigh);
 		
 		mLow   = (RadioButton) findViewById(R.id.low);

@@ -10,17 +10,6 @@
     tools:context=".MainActivity" >
 
     <TextView
-        android:id="@+id/tvage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/tvuserprofile"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/age"
-        android:textSize="25sp" />
-
-    <TextView
         android:id="@+id/tvuserprofile"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -90,62 +79,96 @@
         android:hint="@string/weightunit"
         android:inputType="number|numberDecimal" />
 
-    <Button
-        android:id="@+id/imageButton_BMI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="Show BMI" />
-
-    <Button
-        android:id="@+id/btnclear"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tvage"
-        android:layout_alignRight="@+id/tvuserprofile"
-        android:layout_alignTop="@+id/tvuserprofile"
-        android:text="@string/clear" />
-
-    <Button
-        android:id="@+id/imageButton_cancel"
-        android:layout_width="wrap_content"
+    <GridLayout
+        android:id="@+id/gridLayout_userprofile"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/radioGroup1"
-        android:layout_below="@+id/radioGroup1"
-        android:layout_toLeftOf="@+id/btnconfirm"
-        android:background="@drawable/cancel" />
+        android:layout_alignParentBottom="true"
+        android:columnCount="2"
+        android:rowCount="2" >
+
+        <Button
+            android:id="@+id/btn_bmi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="center|right"
+            android:layout_marginBottom="5dp"
+            android:layout_row="0"
+            android:background="@xml/custom_button"
+            android:text="@string/bmi"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="center|left"
+            android:layout_marginBottom="5dp"
+            android:layout_row="0"
+            android:background="@xml/custom_button"
+            android:text="@string/clear"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="center|left"
+            android:layout_row="1"
+            android:background="@xml/custom_button"
+            android:text="@android:string/cancel"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="center|right"
+            android:layout_row="1"
+            android:background="@xml/custom_button"
+            android:text="@string/confirm"
+            android:textColor="@color/white" />
+
+    </GridLayout>
 
     <RadioGroup
         android:id="@+id/radioGroup1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvuserprofile"
         android:layout_alignRight="@+id/value_weight"
-        android:layout_below="@+id/tvweight"
+        android:layout_below="@+id/value_weight"
+        android:layout_marginTop="20dp"
         android:orientation="vertical" >
-
-        <RadioButton
-            android:id="@+id/heigh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:text="High Senstivity" />
 
         <RadioButton
             android:id="@+id/low"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
-            android:text="Low Senstivity" />
+            android:text="@string/lowsensitivity" />
+
+        <RadioButton
+            android:id="@+id/heigh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/highsensitivity" />
     </RadioGroup>
 
-    <Button
-        android:id="@+id/btnconfirm"
+    <TextView
+        android:id="@+id/tvage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageButton_cancel"
-        android:layout_alignRight="@+id/radioGroup1"
-        android:background="@xml/custom" />
+        android:layout_alignLeft="@+id/tvuserprofile"
+        android:layout_below="@+id/tvuserprofile"
+        android:layout_marginTop="41dp"
+        android:text="@string/age"
+        android:textSize="25sp" />
 
 </RelativeLayout>
