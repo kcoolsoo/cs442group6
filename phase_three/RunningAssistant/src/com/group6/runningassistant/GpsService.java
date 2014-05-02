@@ -80,10 +80,7 @@ public class GpsService extends Service{
         if (pref.getFloat(KEY_WEIGHT, mBodyWeight) > 0f) {
             mBodyWeight = pref.getFloat(KEY_WEIGHT, mBodyWeight);
         }
-        if (mBodyWeight < 0f) {
-            startActivity(new Intent(GpsService.this,
-                    UserProfile.class));
-        }
+       
   //     Log.i("Weight",mBodyWeight+"");
         
         //location service

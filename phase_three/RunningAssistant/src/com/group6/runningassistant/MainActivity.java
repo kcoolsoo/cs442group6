@@ -70,7 +70,7 @@ public class MainActivity extends Activity implements OnInitListener  {
     private TextView avespeedtext;
     long timeWhenStopped = 0;
     long t;
-
+    private SharedPreferences pref;
     private int PREF_MODE = 0;
     private static final String PREF_NAME_USERPROFILE = "UserProfile";
     private static final String KEY_AGE = "age";
@@ -106,7 +106,7 @@ public class MainActivity extends Activity implements OnInitListener  {
        
            
         Context context = getApplicationContext();
-        SharedPreferences pref = context.getSharedPreferences(
+        pref = context.getSharedPreferences(
                 PREF_NAME_USERPROFILE, PREF_MODE);
         if (pref.getFloat(KEY_WEIGHT, mBodyWeight) > 0f) {
             mBodyWeight = pref.getFloat(KEY_WEIGHT, mBodyWeight);
@@ -178,6 +178,10 @@ public class MainActivity extends Activity implements OnInitListener  {
 
         start.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
+                mBodyWeight = -1.0f;
+                if (pref.getFloat(KEY_WEIGHT, mBodyWeight) > 0f) {
+                    mBodyWeight = pref.getFloat(KEY_WEIGHT, mBodyWeight);
+                }
                 if (mBodyWeight < 0f) {
                     startActivity(new Intent(MainActivity.this,
                             UserProfile.class));
@@ -479,7 +483,7 @@ public class MainActivity extends Activity implements OnInitListener  {
         if (mService != null) {
             mService.resetValues();
         } else {
-            mStepValueView.setText("0");
+            mStepValueView.setText("0 "+getResources().getString(R.string.tell_steps_setting));
             SharedPreferences state = getSharedPreferences("state", 0);
             SharedPreferences.Editor stateEditor = state.edit();
             stateEditor.putInt("steps", 0);
