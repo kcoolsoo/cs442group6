@@ -70,12 +70,6 @@ public class Storage {
 		ourContext = c;
 	}
 	
-	public void Clear()
-	{
-		ourContext.deleteDatabase(DATABASE_NAME);
-		
-	}
-	
 	//allows to write to the database
 	public Storage write() throws SQLException {
 		ourHelper = new DbHelpher(ourContext);
@@ -95,7 +89,6 @@ public class Storage {
 		cv.put(KEY_CAL, calorie);
 		cv.put(KEY_TIME, time);
 		return ourDatabase.insert(DATABASE_TABLE, null, cv);
-		
 	}
 
 	public String getData() {

@@ -4,27 +4,18 @@
     android:layout_height="match_parent"
      android:background="#000000"
     android:orientation="vertical" >
-
-    <Button
-        android:id="@+id/DBclearbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Clear DB" 
-        android:onClick="clear_db"/>
     
     <Button
-           android:id="@+id/Sdcardbtn"
+           android:id="@+id/button1"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:text="Export" />
+           android:text="Button" />
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
 
-       
        <TableRow>
             
-
             <TextView
                 android:id="@+id/com.group6.runningassistant."
                 android:layout_width="fill_parent"
@@ -32,6 +23,8 @@
                 android:textColor="#FFFFFF"
                 android:layout_weight="1"
                 android:text="ID" />
+
+            
             
              <TextView
                 android:id="@+id/facketext2"
@@ -68,7 +61,8 @@
              
 
         </TableRow>
-        
+
+       
        
        <TextView
             android:id="@+id/tvsqlinfo"
@@ -78,13 +72,10 @@
             android:text="get info"
             android:scrollbars="vertical"
             />
-
-       
-       
+  
        </TableLayout>
        
     
     
-  
 
 </LinearLayout>
