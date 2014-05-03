@@ -31,6 +31,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
@@ -86,6 +88,7 @@ public class MainActivity extends Activity implements OnInitListener  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
+        final Animation animAlpha = AnimationUtils.loadAnimation(this, R.anim.anim_alpha);
      
         
         Log.i(TAG, "[ACTIVITY] onCreate");
@@ -177,6 +180,7 @@ public class MainActivity extends Activity implements OnInitListener  {
 
         start.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
+            	v.startAnimation(animAlpha);
                 mBodyWeight = -1.0f;
                 if (pref.getFloat(KEY_WEIGHT, mBodyWeight) > 0f) {
                     mBodyWeight = pref.getFloat(KEY_WEIGHT, mBodyWeight);
@@ -253,9 +257,7 @@ public class MainActivity extends Activity implements OnInitListener  {
                 if (!mIsRunning){
                 	Toast.makeText(MainActivity.this,"Saving",Toast.LENGTH_SHORT).show();
         			try{
-        			//String price = tot.getText().toString();
         			String mydate = java.text.DateFormat.getDateInstance().format(Calendar.getInstance().getTime());
-        			//String name1=name.replaceAll("null\n\t","");
         			Storage entry = new Storage(MainActivity.this);
         			entry.write();
         			entry.createEntry( mydate,""+mDistance,calorietext.getText().toString(),chronometer.getText().toString() );

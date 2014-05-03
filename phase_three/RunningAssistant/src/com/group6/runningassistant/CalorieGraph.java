@@ -60,7 +60,6 @@ public class CalorieGraph extends Activity {
 		//graphView.getGraphViewStyle().setVerticalLabelsWidth(300);
 		
 		graphView.getGraphViewStyle().setVerticalLabelsAlign(Align.CENTER);
-		
 		LinearLayout layout = (LinearLayout) findViewById(R.id.calorie_graph);
 		layout.addView(graphView);
 

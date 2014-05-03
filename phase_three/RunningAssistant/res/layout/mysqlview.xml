@@ -4,11 +4,24 @@
     android:layout_height="match_parent"
      android:background="#000000"
     android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/DBclearbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear DB" 
+        android:onClick="clear_db"/>
     
-     <TableLayout
+    <Button
+           android:id="@+id/Sdcardbtn"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Export" />
+    <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
 
+       
        <TableRow>
             
 
@@ -65,10 +78,13 @@
             android:text="get info"
             android:scrollbars="vertical"
             />
-  
+
+       
+       
        </TableLayout>
        
     
     
+  
 
 </LinearLayout>
