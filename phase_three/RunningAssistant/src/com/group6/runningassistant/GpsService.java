@@ -194,22 +194,7 @@ public class GpsService extends Service{
             mCalories = intent.getFloatExtra("calories", 0);
             Log.i("CalSerivce",mCalories+"");
         }
-//        chronometer =new Chronometer( getApplicationContext());
-//        chronometer.setText(getResources().getString(R.string.initclock));
-//        chronometer.setBase(SystemClock.elapsedRealtime()
-//                + timeWhenStopped);
-//        chronometer
-//        .setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
-//            @Override
-//            public void onChronometerTick(Chronometer chronometer) {
-//
-//                t = SystemClock.elapsedRealtime()
-//                        - chronometer.getBase();
-//                Log.i("TimeINSerivce",t+"");
-//            }
-//        });
-//        chronometer.start();
-       
+
         // We want this service to continue running until it is explicitly
         // stopped, so return sticky.
         return START_STICKY;
