@@ -148,6 +148,7 @@
     <string name="lowsensitivity">Low Sensitivity</string>
     <string name="highsensitivity">High Sensitivity</string>
     <string name="launch_screen_desc">Launch Screen</string>
+    <string name="cleardata">Clear Record</string>
    
 
 </resources>
