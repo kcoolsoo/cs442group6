@@ -80,6 +80,13 @@ public class Storage {
 	public void close(){
 		ourHelper.close();
 	}
+	
+	public void Clear()
+	{
+		ourContext.deleteDatabase(DATABASE_NAME);
+		
+	}
+
 
 	public long createEntry(String date, String distance, String calorie,String time) {
 		// TODO Auto-generated method stub
@@ -126,7 +133,7 @@ public class Storage {
 	           else{
 	           close();
 	          	try {
-	               File myFile = new File("/sdcard/myfile.txt");
+	               File myFile = new File("/sdcard/RecordHistory.txt");
 	               myFile.createNewFile();
 	               FileOutputStream fOut = new FileOutputStream(myFile);
 	               OutputStreamWriter myOutWriter = 
