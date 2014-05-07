@@ -4,22 +4,23 @@
     android:layout_height="match_parent" >
 
     <TextView
-        android:id="@+id/faketext1"
+        android:id="@+id/bmi_level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/btn_cancel"
-        android:text="BMI LEVEL"
+        android:text="@string/bmi_level"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
         android:id="@+id/value_bmi"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/faketext1"
-        android:layout_alignBottom="@+id/faketext1"
+        android:layout_alignBaseline="@+id/bmi_level"
+        android:layout_alignBottom="@+id/bmi_level"
         android:layout_centerHorizontal="true"
-        android:ems="10" /> 
+        android:ems="10"
+        android:hint="@string/bmi" />
 
     <ImageView
         android:id="@+id/btn_cancel"
@@ -34,7 +35,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/bmi_chart" />
+        android:src="@drawable/bmi_chartimg" />
     
        </RelativeLayout>
