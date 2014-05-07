@@ -3,13 +3,15 @@
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
+         android:showAsAction="ifRoom|withText"
+        android:title="@string/action_settings"
+        android:icon="@drawable/profile1"/>
      <item
         android:id="@+id/show_report"
         android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/show_report"/>
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/show_report"
+        android:icon="@drawable/graph"/>
       <item
         android:id="@+id/findstore"
         android:orderInCategory="100"
@@ -21,9 +23,16 @@
         android:showAsAction="never"
         android:title="@string/showmap"/>
       <item
-        android:id="@+id/feedback"
+        android:id="@+id/export"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/feedback"/>
+        android:title="@string/export"/>
+      <item
+        android:id="@+id/feedback"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/feedback"
+        android:icon="@drawable/feedback"/>
 
 </menu>
+
