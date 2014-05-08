@@ -2,6 +2,7 @@ package com.group6.runningassistant;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -29,6 +30,7 @@ TextView tv;
             }); 
         
         tv = (TextView) findViewById(R.id.tvsqlinfo);
+        tv.setMovementMethod(new ScrollingMovementMethod());
         Storage info = new Storage(this);
         info.write();
         String data = info.getData();
