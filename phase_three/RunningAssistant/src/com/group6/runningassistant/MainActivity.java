@@ -31,6 +31,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
@@ -86,7 +88,8 @@ public class MainActivity extends Activity implements OnInitListener  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-     
+        final Animation animAlpha = AnimationUtils.loadAnimation(this, R.anim.anim_alpha);
+
         
         Log.i(TAG, "[ACTIVITY] onCreate");
         currentspeed = 0;
@@ -177,6 +180,7 @@ public class MainActivity extends Activity implements OnInitListener  {
 
         start.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
+            	v.startAnimation(animAlpha);
                 mBodyWeight = -1.0f;
                 if (pref.getFloat(KEY_WEIGHT, mBodyWeight) > 0f) {
                     mBodyWeight = pref.getFloat(KEY_WEIGHT, mBodyWeight);
@@ -202,6 +206,7 @@ public class MainActivity extends Activity implements OnInitListener  {
         });
         pause.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
+            	v.startAnimation(animAlpha);
                 if (mIsRunning) {
                     unbindStepService();
                     stopStepService();
@@ -214,11 +219,13 @@ public class MainActivity extends Activity implements OnInitListener  {
         });
         reset.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
+            	v.startAnimation(animAlpha);
                 resetValues(true);
             }
         });
         quit.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
+            	v.startAnimation(animAlpha);
                 if (mIsRunning) {
                     unbindStepService();
                     stopStepService();
@@ -243,6 +250,7 @@ public class MainActivity extends Activity implements OnInitListener  {
         });
         open.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
+            	v.startAnimation(animAlpha);
             	Intent i = new Intent(MainActivity.this,Mysqlview.class);
 				startActivity(i);
             	//resetValues(true);
@@ -250,6 +258,7 @@ public class MainActivity extends Activity implements OnInitListener  {
         });
         save1.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
+            	v.startAnimation(animAlpha);
                 if (!mIsRunning){
                 	Toast.makeText(MainActivity.this,"Saving",Toast.LENGTH_SHORT).show();
         			try{
@@ -702,7 +711,12 @@ public class MainActivity extends Activity implements OnInitListener  {
     		} catch (android.content.ActivityNotFoundException ex) {
     		    Toast.makeText(MainActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
     		}
-        	
+    		return true;
+    		
+        case R.id.export:
+        	Storage entry = new Storage(MainActivity.this);
+        	entry.exporting();
+        	return true;
         }
         return false;
     }

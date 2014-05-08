@@ -62,7 +62,7 @@ public class SpeedGraph extends Activity {
 		
 		graphView.getGraphViewStyle().setVerticalLabelsAlign(Align.CENTER);
 		
-		LinearLayout layout = (LinearLayout) findViewById(R.id.speed_graph);
+		LinearLayout layout = (LinearLayout) findViewById(R.id.sub_Layout2);
 		layout.addView(graphView);
 
 }

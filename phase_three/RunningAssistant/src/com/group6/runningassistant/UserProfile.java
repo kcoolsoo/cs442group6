@@ -10,6 +10,8 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -42,7 +44,8 @@ public class UserProfile extends Activity {
 		mWeight = -1f;
 		mHeight = -1f;
 		
-		mEditAge = (EditText) findViewById(R.id.value_age);
+        final Animation animRotate = AnimationUtils.loadAnimation(this, R.anim.anim_rotate);
+        mEditAge = (EditText) findViewById(R.id.value_age);
 		mEditWeight = (EditText) findViewById(R.id.value_weight);
 		mEditHeight = (EditText) findViewById(R.id.value_height);
 		mSettings = PreferenceManager.getDefaultSharedPreferences(this);
@@ -77,6 +80,7 @@ public class UserProfile extends Activity {
 			
 			@Override
 			public void onClick(View v) {
+				v.startAnimation(animRotate);
 				clearUserProfile();
 			}
 		});
@@ -85,6 +89,7 @@ public class UserProfile extends Activity {
 			
 			@Override
 			public void onClick(View v) {
+				
 				finish();
 			}
 		});
@@ -93,6 +98,7 @@ public class UserProfile extends Activity {
 
 			@Override
 			public void onClick(View v) {
+				
 				try{
 					mAge = Integer.parseInt(mEditAge.getText().toString());
 				
@@ -121,6 +127,7 @@ public class UserProfile extends Activity {
 
 		mBtnBMI.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
+				
 			    if (!mEditWeight.getText().toString().trim().equals("") || !mEditHeight.getText().toString().trim().equals("")){
     				mWeight = Float.parseFloat(mEditWeight.getText().toString());
     				mHeight = Float.parseFloat(mEditHeight.getText().toString());

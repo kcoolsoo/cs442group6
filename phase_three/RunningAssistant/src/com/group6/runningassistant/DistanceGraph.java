@@ -58,7 +58,7 @@ public class DistanceGraph extends Activity {
 		//graphView.getGraphViewStyle().setVerticalLabelsWidth(300);
 		
 		graphView.getGraphViewStyle().setVerticalLabelsAlign(Align.CENTER);
-		LinearLayout layout = (LinearLayout) findViewById(R.id.distance_graph);
+		LinearLayout layout = (LinearLayout) findViewById(R.id.sub_Layout);
 		layout.addView(graphView);
 
 }
