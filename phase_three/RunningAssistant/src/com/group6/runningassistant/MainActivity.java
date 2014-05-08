@@ -163,7 +163,7 @@ public class MainActivity extends Activity implements OnInitListener  {
                             display_time();
                             if(t != 0){
                                 avespeedtext.setText(dfonedc.format(((float)mDistance *1000f / (float)t))
-                                        + "   "
+                                        + " "
                                         + getResources().getString(
                                                 R.string.avespeedunit));
                             }
@@ -591,12 +591,12 @@ public class MainActivity extends Activity implements OnInitListener  {
             switch (msg.what) {
             case STEPS_MSG:
                 mStepValue = (int) msg.arg1;
-                mStepValueView.setText(mStepValue + "   "
+                mStepValueView.setText(mStepValue + " "
                         + getResources().getString(R.string.stepunit));
                 break;
             case SPEED_MSG:
                 currentspeed = (float)msg.arg1 / 1000000f;
-                speedtext.setText(dfonedc.format(currentspeed) + "   "
+                speedtext.setText(dfonedc.format(currentspeed) + " "
                         + getResources().getString(R.string.speedunit));
                 break;
             case DISTANCE_MSG:
@@ -607,7 +607,7 @@ public class MainActivity extends Activity implements OnInitListener  {
 //                        // Distance:
 //                        * (mDistance - previousdis) // centimeters
 //                        / 1000.0; // centimeters/kilometer
-                distancetext.setText(dfonedc.format(mDistance) + "   "
+                distancetext.setText(dfonedc.format(mDistance) + " "
                         + getResources().getString(R.string.distanceunit));
                           
                 break;
@@ -618,7 +618,7 @@ public class MainActivity extends Activity implements OnInitListener  {
                 break;
             case CALORIE_MSG:
                 mCalories = msg.arg1/1000000f;
-                calorietext.setText(df.format(mCalories) + "   "
+                calorietext.setText(df.format(mCalories) + " "
                         + getResources().getString(R.string.calorieunit));
                 break;
             case GPS_STOP:

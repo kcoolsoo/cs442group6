@@ -8,7 +8,7 @@
     <string name="title_activity_speedGraph"> Speed Graph</string>
     <string name="title_activity_distanceGraph"> Distance Graph</string>
     <string name="title_activity_calorieGraph"> Calorie Graph</string>
-    <string name="title_activity_userprofile">User Profile</string>
+    <string name="title_activity_userprofile">Settings</string>
     <string name="page1_title">USER PROFILE</string>
     <string name="userprofile"> User Profile</string>
     <string name="group1">Map Function</string>
