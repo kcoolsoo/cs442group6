@@ -136,7 +136,7 @@
     <string name="heightunit">Inches</string>
     <string name="weightunit">Lbs</string>
     <string name="clear">Clear</string>
-    <string name="showmap">Show your path</string>
+    <string name="showmap">Show my path</string>
     <string name="findstore">Find Store</string>
     <string name="show_report">Show Report</string>
     <string name="gps_not_enabled">GPS Disabled</string>
