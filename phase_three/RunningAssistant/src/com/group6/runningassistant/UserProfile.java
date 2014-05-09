@@ -127,7 +127,27 @@ public class UserProfile extends Activity {
 
 		mBtnBMI.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				
+			    try{
+                    mAge = Integer.parseInt(mEditAge.getText().toString());
+                
+                mWeight = Float.parseFloat(mEditWeight.getText().toString());
+                mHeight = Float.parseFloat(mEditHeight.getText().toString());
+                if(mAge>0 && mWeight>0.0 && mHeight>0.0)
+                {
+                    saveUserProfile(mAge, mWeight, mHeight);
+                    flag=1;              
+                }else
+                
+                    {
+                        Toast.makeText(UserProfile.this, "Please!! Fill Appropriate Date", Toast.LENGTH_LONG).show();
+                    }
+                
+                
+                }catch(NumberFormatException e)
+                {
+                    Toast.makeText(UserProfile.this, "Please!! Fill Appropriate Date", Toast.LENGTH_LONG).show();
+                }
+			    
 			    if (!mEditWeight.getText().toString().trim().equals("") || !mEditHeight.getText().toString().trim().equals("")){
     				mWeight = Float.parseFloat(mEditWeight.getText().toString());
     				mHeight = Float.parseFloat(mEditHeight.getText().toString());

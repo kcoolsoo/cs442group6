@@ -151,5 +151,7 @@
     <string name="launch_screen_desc">Launch Screen</string>
     <string name="bmi_level">BMI_Level</string>
   	<string name="stepsense">Step Counter Sensitivity</string>
-
+	<string name="message_battery">Running service is high batter consuming current battery level is lower than 50% do you want to start anyway?</string>
+	<string name="ok"> OK</string>
+	<string name="message_sensor">Senser is not avaliable, the step counter function will not work</string>
 </resources>

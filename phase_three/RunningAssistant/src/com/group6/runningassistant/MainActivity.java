@@ -6,9 +6,12 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.BatteryManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -18,10 +21,12 @@ import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.speech.tts.TextToSpeech;
@@ -81,9 +86,11 @@ public class MainActivity extends Activity implements OnInitListener  {
     private static ArrayList<String> speedtime = new ArrayList<String>();
     private static ArrayList<String> distancetime = new ArrayList<String>();
     private static ArrayList<String> caltime = new ArrayList<String>();
-    
+    private Context context;
     private TextToSpeech myTTS;
-    
+    private Intent batteryStatus;
+    private float level;
+    private boolean hasSensor = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,8 +113,7 @@ public class MainActivity extends Activity implements OnInitListener  {
 	    startActivityForResult(checkTTSIntent, 0);
 	//end of TTS 
        
-           
-        Context context = getApplicationContext();
+        context = getApplicationContext();
         pref = context.getSharedPreferences(
                 PREF_NAME_USERPROFILE, PREF_MODE);
         if (pref.getFloat(KEY_WEIGHT, mBodyWeight) > 0f) {
@@ -167,7 +173,7 @@ public class MainActivity extends Activity implements OnInitListener  {
                                         + getResources().getString(
                                                 R.string.avespeedunit));
                             }
-                            if ((int)(t/1000) % 60 == 0){
+                            if ((int)(t/1000) % 60 == 0 && (int)(t/1000) != 0){
                                 speedtime.add(currentspeed+"");
                                 Log.i("Distance",mDistance+"");
                                 distancetime.add(mDistance+"");
@@ -176,11 +182,41 @@ public class MainActivity extends Activity implements OnInitListener  {
                         }
                     });
         }
+        //check battery 
+        SensorManager sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+        Sensor accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        if (accelerometerSensor == null){
+            hasSensor = false;
+            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+            dialog.setMessage(context.getResources().getString(R.string.message_sensor));
+            dialog.setPositiveButton(context.getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
 
-
+                @Override
+                public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                 
+                }
+            });
+           
+            dialog.show();
+            
+        }
+        
+        //check battery
+      
+        this.registerReceiver(this.batteryInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        final Context context =this;
         start.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-            	v.startAnimation(animAlpha);
+                v.startAnimation(animAlpha);
+                
+                
+             
+                
+                
+                
+                
+            
+            	//check weigth
                 mBodyWeight = -1.0f;
                 if (pref.getFloat(KEY_WEIGHT, mBodyWeight) > 0f) {
                     mBodyWeight = pref.getFloat(KEY_WEIGHT, mBodyWeight);
@@ -190,14 +226,45 @@ public class MainActivity extends Activity implements OnInitListener  {
                             UserProfile.class));
                     //finish();
                 } else if(checkGPS()){
-                    if (!mIsRunning) {
-                        startStepService();
-                        bindStepService();
-                        chronometer.setBase(SystemClock.elapsedRealtime()
-                                + timeWhenStopped);
-                        chronometer.start();
+                   
+                    if( level < 50){
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+                        dialog.setMessage(context.getResources().getString(R.string.message_battery));
+                        dialog.setPositiveButton(context.getResources().getString(R.string.start), new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                                if (!mIsRunning) {
+                                    startStepService();
+                                    bindStepService();
+                                    chronometer.setBase(SystemClock.elapsedRealtime()
+                                            + timeWhenStopped);
+                                    chronometer.start();
+                                    myTTS.speak("There's nothing to think about. Just run", TextToSpeech.QUEUE_FLUSH, null);
+                                }
+                            }
+                        });
+                        dialog.setNegativeButton(context.getString(R.string.Cancel), new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                                // TODO Auto-generated method stub
+
+                            }
+                        });
+                        dialog.show();
+                        
+                    }else{
+                        if (!mIsRunning) {
+                            startStepService();
+                            bindStepService();
+                            chronometer.setBase(SystemClock.elapsedRealtime()
+                                    + timeWhenStopped);
+                            chronometer.start();
+                            myTTS.speak("There's nothing to think about. Just run", TextToSpeech.QUEUE_FLUSH, null);
+                        }
+                       
                     }
-                    myTTS.speak("There's nothing to think about. Just run", TextToSpeech.QUEUE_FLUSH, null);
                 }
                 
  
@@ -444,7 +511,7 @@ public class MainActivity extends Activity implements OnInitListener  {
         if (!mIsRunning) {
             Log.i(TAG, "[SERVICE] Start");
             mIsRunning = true;
-            startService(new Intent(MainActivity.this, StepService.class));
+            if (hasSensor) startService(new Intent(MainActivity.this, StepService.class));
             Intent gpsintent = new Intent(MainActivity.this, GpsService.class);
             gpsintent.putExtra("stoptime", timeWhenStopped);
             gpsintent.putExtra("calorees", mCalories);
@@ -456,7 +523,7 @@ public class MainActivity extends Activity implements OnInitListener  {
 
     private void bindStepService() {
         Log.i(TAG, "[SERVICE] Bind");
-        bindService(new Intent(MainActivity.this, StepService.class),
+        if (hasSensor) bindService(new Intent(MainActivity.this, StepService.class),
                 mConnection, Context.BIND_AUTO_CREATE
                         + Context.BIND_DEBUG_UNBIND);
         Intent gpsintent = new Intent(MainActivity.this, GpsService.class);
@@ -470,7 +537,7 @@ public class MainActivity extends Activity implements OnInitListener  {
 
     private void unbindStepService() {
         Log.i(TAG, "[SERVICE] Unbind");
-        unbindService(mConnection);
+        if (hasSensor) unbindService(mConnection);
         unbindService(gpsConnection);
     }
 
@@ -478,7 +545,7 @@ public class MainActivity extends Activity implements OnInitListener  {
         Log.i(TAG, "[SERVICE] Stop");
         if (mService != null) {
             Log.i(TAG, "[SERVICE] stopService");
-            stopService(new Intent(MainActivity.this, StepService.class));
+            if (hasSensor) stopService(new Intent(MainActivity.this, StepService.class));
             stopService(new Intent(MainActivity.this, GpsService.class));
         }
         mIsRunning = false;
@@ -513,6 +580,10 @@ public class MainActivity extends Activity implements OnInitListener  {
         chronometer.setText(getResources().getString(R.string.initclock));
         avespeedtext.setText(getResources().getString(R.string.avespeed));
         position.clear();
+        speedtime.clear();
+        speedtime.clear();
+        distancetime.clear();
+        caltime.clear();
     }
 
 
@@ -693,7 +764,7 @@ public class MainActivity extends Activity implements OnInitListener  {
         	Intent passIntent1=new Intent(MainActivity.this,Statistics.class);
             passIntent1.putExtras(bundle);
             if(speedtime.isEmpty()||caltime.isEmpty()||distancetime.isEmpty())
-            	 	Toast.makeText(MainActivity.this,"No Data To Display",Toast.LENGTH_LONG).show();
+            	 	Toast.makeText(MainActivity.this,"No Data To Display",Toast.LENGTH_SHORT).show();
                 else
                 	startActivity(passIntent1);
             return true;
@@ -799,6 +870,13 @@ public class MainActivity extends Activity implements OnInitListener  {
         }
         return network_enabled;
     }
+    
+    private BroadcastReceiver batteryInfoReceiver = new BroadcastReceiver(){
+        @Override
+        public void onReceive(Context context, Intent intent){
+            level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
+        }
+    };
 }
 
 
