@@ -173,7 +173,7 @@ public class MainActivity extends Activity implements OnInitListener  {
                                         + getResources().getString(
                                                 R.string.avespeedunit));
                             }
-                            if ((int)(t/1000) % 60 == 0 && (int)(t/1000) != 0){
+                            if ((int)(t/1000) % 60 == 0){
                                 speedtime.add(currentspeed+"");
                                 Log.i("Distance",mDistance+"");
                                 distancetime.add(mDistance+"");
